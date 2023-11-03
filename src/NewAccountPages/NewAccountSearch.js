@@ -22,7 +22,9 @@ const NewAccountSearch = () => {
 
 
     <div style={{ display: 'flex', flexDirection: 'column',
-                  gap: '20px', padding: '5px', margin: '5px',
+                  gap: '20px', 
+                  position: 'absolute', bottom: '0px', justifyContent: 'center',
+                  alignContent: 'center', alignItems: 'center'
                   }}>
 
       <button id='btn1'>
@@ -32,10 +34,7 @@ const NewAccountSearch = () => {
       <button id='btn2'>
         Back <ArrowBackIcon/>
       </button>
-
-    </div>
     
-    <div style={{ position: 'absolute',bottom: '0px'}}>
       <Navigation />
     </div>
   </>
