@@ -12,7 +12,7 @@ const NewAccountSearch = () => {
   
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/NewAccount/Search/`; 
+    let path = `/NewAccount/Search/Confirm`; 
     navigate(path);
   }
 
@@ -24,8 +24,8 @@ const NewAccountSearch = () => {
         <img className="image" alt="BuddyUp" src={BuddyUp} />
           <div id='screenDiv'>
 
-              <DropDown name=" Search Nearby " option1="Macy" option2="John" option3="Phil"/>
-              <DropDown name=" Search Groups " option1="OS" option2="Music" option3="Pysch 1301"/> 
+              <DropDown name=" Search Nearby " option1="Mary Mendez" option2="John Jackson" option3="Phil Jackson"/>
+              <DropDown name=" Search Groups " option1="Computer Science 1" option2="Music" option3="Pysch 1301"/> 
               <DropDown name=" Location " option1="ECSW" option2="JO" option3="Green Hall"/> 
 
           </div>

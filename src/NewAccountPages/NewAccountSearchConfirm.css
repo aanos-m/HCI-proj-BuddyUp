@@ -1,0 +1,20 @@
+.NewAccountSearchConfirm {
+    display: grid;
+    grid-template-rows: 1fr auto; 
+    overflow-y: hidden;
+  }
+
+.NewAccountSearchConfirm #screenDiv {
+    background-color: #2264e25c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    color: white;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+

@@ -5,7 +5,7 @@
   }
 
 .NewAccountSearch #screenDiv {
-    background-color: #2264e214;
+    background-color: #2264e25c;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
