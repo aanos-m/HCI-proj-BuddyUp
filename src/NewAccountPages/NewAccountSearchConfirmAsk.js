@@ -5,6 +5,10 @@ import CheckIcon from '@mui/icons-material/Check';
 import Me from "../components/images/person.png";
 
 const NewAccountSearchConfirmAsk = () => {
+
+    function alertFriend() {
+        alert("Friend Added");
+    }
   return (
     <>
     <div className='newAccountPage'>
@@ -37,7 +41,7 @@ const NewAccountSearchConfirmAsk = () => {
                   alignContent: 'center', alignItems: 'center'
                   }}>
 
-      <button  onClick={alert("Friend Added")} style={{
+      <button onClick={alertFriend}  style={{
             color: 'white',
             backgroundColor: '#1DD100',
             fontWeight: 'bold',
