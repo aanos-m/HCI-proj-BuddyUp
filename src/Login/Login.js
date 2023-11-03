@@ -13,6 +13,11 @@ const Login = () => {
     let path = `/CreateAccount`; 
     navigate(path);
   }
+
+  const returnUser = () => {
+    let path = `/ReturnUser`; 
+    navigate(path);
+  }
     return (
         <div className="login">
           <div className="div">
@@ -26,7 +31,7 @@ const Login = () => {
             <input className="frame-2" type="username" name="username" id="username" 
             placeholder="Enter your username"/>
 
-            <div className="frame-3" role='button'>
+            <div className="frame-3" role='button' onClick={returnUser}>
               <div className="text-wrapper-3" >Login</div>
             </div>
 

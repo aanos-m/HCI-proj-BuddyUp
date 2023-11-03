@@ -3,10 +3,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
+import { NavLink } from 'react-router-dom';
+import './Navigation.css';
 
-const Navigation = ( 
-  { item1, item2, item3, item4}
-) => {
+const Navigation = ( ) => {
+
   return (
     <div 
         style={{
@@ -19,46 +20,44 @@ const Navigation = (
         background: 'white',
         boxShadow: '0px -4px 4px 0px rgba(0, 0, 0, 0.25)'
     }}>
-      <ul class="nav nav-pills" style={{ justifyContent: 'space-around', fontSize: '16px'}}>
+      <ul class="nav nav-pills" style={{ justifyContent: 'space-around', fontSize: '16px'}} id='navbar'>
         <li class="nav-item">
-            <button class="nav-link " 
-                    style={{ display: 'flex', 
-                            color: {item1},
+              <NavLink to="/NewAccountHome" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '50px'}}>
-              <HomeIcon fontSize="small" /> Home </button>
+              <HomeIcon fontSize="small" /> Home
+            </NavLink>
         </li>
         <li class="nav-item" >
-            <button class="nav-link " 
-                    style={{ display: 'flex',
-                            color: {item2},
+            <NavLink to="/NewAccount/friends" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '50px'}}>
-              <PeopleIcon fontSize="small" /> Friends</button>
+              <PeopleIcon fontSize="small" /> Friends
+            </NavLink>
         </li>
         <li class="nav-item"  >
-            <button class="nav-link " 
-                    style={{ display: 'flex', 
-                    color: {item3},
+              <NavLink to="/NewAccount/search" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '50px'}}>
-              <SearchIcon fontSize="small"/> Search </button>
+              <SearchIcon fontSize="small" /> Search
+            </NavLink>
+
         </li>
         <li class="nav-item" >
-            <button class="nav-link " 
-                    style={{ display: 'flex', 
-                  color: {item4},
+              <NavLink to="/NewAccount/accountPage" className="nav-link" style={{ display: 'flex',
+
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '50px'}}>
-              <AccountCircleIcon fontSize="small"/> Account </button>
+              <AccountCircleIcon fontSize="small" /> Account
+            </NavLink>
         </li>
        
       </ul>

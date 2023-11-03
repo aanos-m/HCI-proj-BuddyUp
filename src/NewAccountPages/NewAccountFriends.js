@@ -1,18 +1,17 @@
-import './NewAccount.css';
+import React from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 
+const NewAccountFriends = () => {
 
-const NewAccount = () => {
-  return (
-    <>
-   
+return (
+  <>
     <div>
       <img className="image" alt="BuddyUp" src={BuddyUp} />
       <div id='screenDiv'>
         <h1 id='textWrapper'>
-          It’s time for 
-          you to connect with people!!
+            It’s time for 
+            you to make friends!!
         </h1>
       </div>
     </div>
@@ -21,10 +20,11 @@ const NewAccount = () => {
       position: 'absolute',
       bottom: '0px'
     }}>
-      <Navigation/>
+      <Navigation />
     </div>
-    </>
-  )
+  </>
+)
 }
 
-export default NewAccount
+
+export default NewAccountFriends

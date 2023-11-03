@@ -12,7 +12,7 @@ const CreateAccount = () => {
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/NewAccount`; 
+    let path = `/NewAccountHome`; 
     navigate(path);
   }
 
@@ -28,27 +28,15 @@ const CreateAccount = () => {
             <div role='button' onClick={()=>setIsOpen(!isOpen)} id='toggleBtn'> Toggle </div>
           </div>
 
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>Name: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>Year: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>DOB: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>Major: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>Minor: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>Likes: </div>
-          </div>
-          <div className="frame-2">
-            <div className="text-wrapper-2" contentEditable>About Me: </div>
-          </div>
+            <input className="text-wrapper-2" type="text" placeholder="Name"/>
+            <input className="text-wrapper-2" type="text" placeholder="Year"/>
+            <input className="text-wrapper-2" type="text" placeholder="DOB"/>
+            <input className="text-wrapper-2" type="text" placeholder="Major"/>
+            <input className="text-wrapper-2" type="text" placeholder="Minor"/>
+            <input className="text-wrapper-2" type="text" placeholder="Likes"/>
+            <textarea  className="text-wrapper-2" type="text" placeholder="About Me" wrap='soft'
+            style={{overflow:'hidden', resize:'none'}}/>
+
         </div>
         
         <div className="frame-4" role='button' onClick={routeChange}>

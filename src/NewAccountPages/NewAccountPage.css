@@ -1,0 +1,16 @@
+
+
+.ellipse {
+    align-items: center;
+    justify-content: center;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.ellipse img {
+    border-radius: 41.5px/35.5px;
+    max-width: 100%;
+    max-height: 100%;
+}

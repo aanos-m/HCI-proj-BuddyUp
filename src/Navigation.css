@@ -1,0 +1,4 @@
+#navbar li:active {
+    color: white;
+    background-color: blue;
+}

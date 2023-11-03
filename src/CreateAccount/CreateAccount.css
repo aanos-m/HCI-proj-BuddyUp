@@ -19,17 +19,6 @@
   text-decoration: none;
 }
 
-/* .createAccount .div {
-  background-color: #ffffff;
-  height: 844px;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  width: 390px;
-} */
-
 .createAccount .image {
   height: 100px;
   left: 40px;
@@ -60,7 +49,6 @@
   align-items: center;
   justify-content: center;
   height: 90px;
-  /* height: fit-content; */
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -102,6 +90,10 @@
   width: 100%;
 }
 
+.createAccount .text-wrapper-2 input ::placeholder{
+  color: #ffffff;
+}
+
 .createAccount .text-wrapper-2 {
   align-self: stretch;
   color: #ffffff;
@@ -113,7 +105,31 @@
   margin-top: -1px;
   position: relative;
   text-align: center;
+  border-radius: 20px;
+  border: none;
+  background-color: #2264e2;
+  white-space: normal;
 }
+
+/* .createAccount .text-wrapper-2 input {
+  background-color: #2264e2; /
+  border: none; 
+  color: #ffffff;
+  border: none;
+  background-color: #2264e2;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  border-radius: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 100%; 
+  outline: none; 
+  white-space: normal;
+} */
+
+
 
 .createAccount .frame-4 {
   align-items: center;
