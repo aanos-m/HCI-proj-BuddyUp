@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './CreateAccount.css';
 
 import BuddyUp from "../components/images/BuddyUp.png";
@@ -6,12 +6,9 @@ import Me from "../components/images/Me.png";
 
 import { useNavigate } from 'react-router-dom';
 
-function showImg() {
-  document.getElementById('ellipse').style.visibility='visible';
-}
-
-
 const CreateAccount = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
@@ -24,8 +21,11 @@ const CreateAccount = () => {
       <div className="div">
         <img className="image" alt="BuddyUp" src={BuddyUp} />
         <div className="frame">
-          <div className="ellipse" role='button' onClick={showImg}>
-            <img alt="profile pic" src= {Me} />
+          <div className="ellipse" role='button'>
+            {
+            isOpen? <img alt="profile pic" src= {Me} />:null
+            }
+            <div role='button' onClick={()=>setIsOpen(!isOpen)} id='toggleBtn'> Toggle </div>
           </div>
 
           <div className="frame-2">
@@ -59,4 +59,4 @@ const CreateAccount = () => {
   );
 }
 
-export default CreateAccount
+export default CreateAccount;

@@ -7,6 +7,18 @@
   width: 100%;
 }
 
+#toggleBtn {
+  
+  margin: 10px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #2264e2;
+  color: white;
+  text-decoration: none;
+}
+
 /* .createAccount .div {
   background-color: #ffffff;
   height: 844px;
@@ -48,6 +60,10 @@
   align-items: center;
   justify-content: center;
   height: 90px;
+  /* height: fit-content; */
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .createAccount .ellipse img {
