@@ -1,0 +1,36 @@
+.image {
+    height: 100px;
+    left: 40px;
+    object-fit: cover;
+    position: absolute;
+    top: 30px;
+    width: 310px;
+}
+
+#screenDiv {
+    align-items: center;
+    background-color: #2264e25c;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    width: 330px;
+    height: calc(100vh - 30rem)
+}
+
+#textWrapper {
+    color: #fffcfc;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -2.5px;
+    margin-right: -2.5px;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: 295px;
+}
