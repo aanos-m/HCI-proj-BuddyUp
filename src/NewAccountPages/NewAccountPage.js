@@ -34,7 +34,9 @@ const NewAccountPage = () => {
     </div>
 
     <div style={{ display: 'flex', flexDirection: 'column',
-                  gap: '20px', padding: '5px', margin: '5px'
+                  gap: '20px', 
+                  position: 'absolute', bottom: '0px', justifyContent: 'center',
+                  alignContent: 'center', alignItems: 'center'
                   }}>
 
       <button id='btn'>
@@ -45,9 +47,6 @@ const NewAccountPage = () => {
         Change Settings
       </button>
 
-    </div>
-  
-    <div style={{ position: 'absolute', bottom: '0px'}}>
       <Navigation />
     </div>
   </>
