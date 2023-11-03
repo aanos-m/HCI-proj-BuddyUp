@@ -16,10 +16,10 @@ function App() {
           <Route path='/' element={ <Login/>}/>
           <Route exact path="/CreateAccount" element={ <CreateAccount/> } /> 
 
-          <Route exact path="/NewAccountHome" element={ <NewAccountHome/> } /> 
-          <Route path='/NewAccount/friends' element={ <NewAccountFriends/>} />
-          <Route path='/NewAccount/search' element={<NewAccountSearch/>} />
-          <Route path="/NewAccount/accountPage" element={<NewAccountPage/>} />
+          <Route exact path="/NewAccount/Home" element={ <NewAccountHome/> } /> 
+          <Route path='/NewAccount/Friends' element={ <NewAccountFriends/>} />
+          <Route path='/NewAccount/Search' element={<NewAccountSearch/>} />
+          <Route path="/NewAccount/AccountPage" element={<NewAccountPage/>} />
 
 
 

@@ -22,7 +22,7 @@ const Navigation = ( ) => {
     }}>
       <ul class="nav nav-pills" style={{ justifyContent: 'space-around', fontSize: '16px'}} id='navbar'>
         <li class="nav-item">
-              <NavLink to="/NewAccountHome" className="nav-link" style={{ display: 'flex',
+              <NavLink to="/NewAccount/Home" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
@@ -31,7 +31,7 @@ const Navigation = ( ) => {
             </NavLink>
         </li>
         <li class="nav-item" >
-            <NavLink to="/NewAccount/friends" className="nav-link" style={{ display: 'flex',
+            <NavLink to="/NewAccount/Friends" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
@@ -40,7 +40,7 @@ const Navigation = ( ) => {
             </NavLink>
         </li>
         <li class="nav-item"  >
-              <NavLink to="/NewAccount/search" className="nav-link" style={{ display: 'flex',
+              <NavLink to="/NewAccount/Search" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
@@ -50,7 +50,7 @@ const Navigation = ( ) => {
 
         </li>
         <li class="nav-item" >
-              <NavLink to="/NewAccount/accountPage" className="nav-link" style={{ display: 'flex',
+              <NavLink to="/NewAccount/AccountPage" className="nav-link" style={{ display: 'flex',
 
                               flexDirection: 'column',
                               justifyContent: 'center',

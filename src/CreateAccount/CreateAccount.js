@@ -12,7 +12,7 @@ const CreateAccount = () => {
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/NewAccountHome`; 
+    let path = `/NewAccount/Home`; 
     navigate(path);
   }
 
