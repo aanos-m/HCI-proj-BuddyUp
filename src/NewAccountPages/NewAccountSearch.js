@@ -3,7 +3,6 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 import './NewAccountSearch.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DropDown from '../components/DropDown';
 
 import { useNavigate } from 'react-router-dom';
@@ -42,10 +41,6 @@ const NewAccountSearch = () => {
         <button id='btn1' onClick={routeChange}>
           Done <ArrowForwardIcon/>
         </button>
-
-        {/* <button id='btn2'>
-          Back <ArrowBackIcon/>
-        </button> */}
       
         <Navigation />
       </div>
