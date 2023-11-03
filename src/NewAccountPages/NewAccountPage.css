@@ -1,3 +1,8 @@
+.NewAccountPage {
+    display: grid;
+    grid-template-rows: 1fr auto; 
+  }
+
 .ellipse {
     align-items: center;
     justify-content: center;
@@ -8,9 +13,9 @@
     margin: 5px;
 }
 
- ul {
+ul {
     list-style-type: none;
-  }
+}
 
 .ellipse img {
     border-radius: 41.5px/35.5px;
@@ -37,7 +42,7 @@
     padding: 20px;
     position: relative;
     width: 330px;
-    height: min-content;
+    /* height: min-content; */
 }
 
 #btn {

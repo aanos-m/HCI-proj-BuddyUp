@@ -1,8 +1,14 @@
+.NewAccountSearch {
+    display: grid;
+    grid-template-rows: 1fr auto; 
+    overflow-y: hidden;
+  }
+
 .NewAccountSearch #screenDiv {
-    height: 100%;
     background-color: #2264e214;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 
@@ -21,7 +27,7 @@
     width: 110px;
 }
 
-#btn2 {
+/* #btn2 {
     align-items: center;
     color: white;
     background-color: #1dd100;
@@ -34,4 +40,4 @@
     padding: 10px;
     border: none;
     width: 110px;
-}
+} */
