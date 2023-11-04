@@ -3,8 +3,16 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 import Me from "../components/images/Me.png";
 import './NewAccountPage.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const NewAccountPage = () => {
+
+  let navigate = useNavigate(); 
+  const logout = () =>{ 
+    let path = `/`; 
+    navigate(path);
+  }
 
   return (
     <>
@@ -30,6 +38,9 @@ const NewAccountPage = () => {
               Likes: Music, soccer, and art
             </li>
           </ul>
+          <button id='btnn' onClick={logout}>
+            Logout
+          </button>
         
         </div>
       </div>
@@ -47,7 +58,7 @@ const NewAccountPage = () => {
         <button id='btn'>
           Change Settings
         </button>
-
+      
         <Navigation />
       </div>
   </>
