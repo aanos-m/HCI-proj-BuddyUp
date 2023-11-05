@@ -5,13 +5,17 @@ import '../NewAccountPages/NewAccountSearch.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DropDown from '../components/DropDown';
 import { useNavigate } from 'react-router-dom';
-
-
+import MapIcon from '@mui/icons-material/Map';
 
 const ReturnUserSearch = () => {
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/ReturnUser/Search/Confirm`; 
+    navigate(path);
+  }
+
+  const mapRoute = () =>{ 
+    let path = `/ReturnUser/Search/Map`; 
     navigate(path);
   }
   return (
@@ -37,6 +41,10 @@ const ReturnUserSearch = () => {
 
             <button id='btn1' onClick={routeChange}>
             Done <ArrowForwardIcon/>
+          </button>
+
+          <button id='btn1' onClick={mapRoute}>
+            Map <MapIcon/>
           </button>
         <Nav />
       </div>

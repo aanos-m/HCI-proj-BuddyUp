@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Nav from '../Nav';
 import Me from "../components/images/Me.png";
 import '../NewAccountPages/NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
+import ChangePasswordPopup from '../components/ChangePasswordPopup';
 
 
 const ReturnUserAccount = () => {
+
+  const [showChangePasswordPopup, setShowChangePasswordPopup] = useState(false);
+
+  const openChangePasswordPopup = () => {
+    setShowChangePasswordPopup(true);
+  };
+
+  const closeChangePasswordPopup = () => {
+    setShowChangePasswordPopup(false);
+  };
+
   
   let navigate = useNavigate(); 
   const logout = () =>{ 
@@ -51,9 +63,12 @@ const ReturnUserAccount = () => {
                     alignContent: 'center', alignItems: 'center'
                     }}>
 
-        <button id='btn'>
+        <button id='btn' onClick={openChangePasswordPopup}>
           Change Password
         </button>
+        {showChangePasswordPopup && (
+        <ChangePasswordPopup onClose={closeChangePasswordPopup} />
+      )}
 
         <button id='btn'>
           Change Settings

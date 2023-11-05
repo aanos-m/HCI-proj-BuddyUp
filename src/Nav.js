@@ -40,7 +40,7 @@ const Nav = ( ) => {
             </NavLink>
         </li>
         <li class="nav-item"  >
-              <NavLink to="/ReturnUser/Search" className="nav-link" style={{ display: 'flex',
+              <NavLink to="/ReturnUser/Search/Map" className="nav-link" style={{ display: 'flex',
                               flexDirection: 'column',
                               justifyContent: 'center',
                               alignItems: 'center',
