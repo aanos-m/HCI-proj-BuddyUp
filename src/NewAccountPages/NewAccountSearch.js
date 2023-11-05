@@ -8,15 +8,11 @@ import DropDown from '../components/DropDown';
 import { useNavigate } from 'react-router-dom';
 
 const NewAccountSearch = () => {
-
-  
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/NewAccount/Search/Confirm`; 
     navigate(path);
   }
-
-
   return (
     <>
       <div className='NewAccountSearch'>

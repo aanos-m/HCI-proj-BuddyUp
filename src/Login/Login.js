@@ -25,7 +25,7 @@ const Login = () => {
       } else if (username.length < 6 || password.length < 6) {
         alert(`Username and password must be at least 6 characters long, respectively.`);
       } else {
-        let path = `/ReturnUser`; 
+        let path = `/ReturnUser/Home`; 
       navigate(path);
       }
     }
