@@ -1,22 +1,22 @@
 import React from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Me from "../components/images/person.png";
-import Navigation from '../Navigation';
+import Nav from '../Nav';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
-import './NewAccountSearchConfirm.css';
+import '../NewAccountPages/NewAccountSearchConfirm.css';
 
-const NewAccountSearchConfirm = (props) => {
+const ReturnUserSearchConfirm = (props) => {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-      let path = `/NewAccount/Search/Confirm/Ask`; 
+      let path = `/ReturnUser/Search/Confirm/Ask`; 
       navigate(path);
     }
 
     const routeBack = () =>{ 
-        let path = `/NewAccount/Search`; 
+        let path = `/ReturnUser/Search`; 
         navigate(path);
       }
   
@@ -89,10 +89,10 @@ const NewAccountSearchConfirm = (props) => {
           Back <ArrowBackIcon/>
         </button>
       
-        <Navigation />
+        <Nav />
       </div>
 </>
   )
 }
 
-export default NewAccountSearchConfirm
+export default ReturnUserSearchConfirm

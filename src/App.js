@@ -14,6 +14,8 @@ import ReturnUserFriends from './ReturnUser/ReturnUserFriends';
 import ReturnUserHome from './ReturnUser/ReturnUserHome';
 import ReturnUserAccount from './ReturnUser/ReturnUserAccount';
 import ReturnUserSearch from './ReturnUser/ReturnUserSearch';
+import ReturnUserSearchConfirm from './ReturnUser/ReturnUserSearchConfirm';
+import ReturnUserSearchConfirmAsk from './ReturnUser/ReturnUserSearchConfirmAsk';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path='/ReturnUser/Friends' element={ <ReturnUserFriends/>}/>    
           <Route path="/ReturnUser/Search" element= { <ReturnUserSearch/> } />
           <Route path='/ReturnUser/AccountPage' element={ <ReturnUserAccount/>} /> 
+          <Route path="/ReturnUser/Search/Confirm" element={<ReturnUserSearchConfirm/>} />
+          <Route path="/ReturnUser/Search/Confirm/Ask" element={<ReturnUserSearchConfirmAsk/>} />
       </Routes>
     </div>
   );

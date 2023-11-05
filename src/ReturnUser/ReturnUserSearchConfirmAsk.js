@@ -1,13 +1,10 @@
 import React from 'react'
 import Nav from '../Nav';
 
-
-const ReturnUserHome = () => {
+const ReturnUserSearchConfirmAsk = () => {
   return (
     <>
-    
-    <div>Return User Home</div>
-
+    <div>ReturnUserSearchConfirmAsk</div>
     <div style={{ display: 'flex', flexDirection: 'column',
                     gap: '20px', 
                     position: 'absolute', bottom: '0px', justifyContent: 'center',
@@ -17,8 +14,7 @@ const ReturnUserHome = () => {
         <Nav />
       </div>
     </>
-    
   )
 }
 
-export default ReturnUserHome
+export default ReturnUserSearchConfirmAsk

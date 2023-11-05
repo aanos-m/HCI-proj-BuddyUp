@@ -1,6 +1,6 @@
 import React from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
-import Navigation from '../Navigation';
+import Nav from '../Nav';
 import Me from "../components/images/Me.png";
 import '../NewAccountPages/NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
@@ -59,7 +59,7 @@ const ReturnUserAccount = () => {
           Change Settings
         </button>
       
-        <Navigation />
+        <Nav />
       </div>
   </>
   )
