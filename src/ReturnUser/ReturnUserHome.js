@@ -153,7 +153,6 @@ const ReturnUserHome = () => {
     const randomIndex = Math.floor(Math.random() * happinessPhrases.length);
     return happinessPhrases[randomIndex];
   };
-
   return (
     <>
     <img className="image" alt="BuddyUp" src={BuddyUp} />
