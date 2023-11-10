@@ -14,7 +14,7 @@ const ReturnUser = () => {
 
   useEffect(() => {
     const fetchFriendImages = async () => {
-      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/280x190&${friend.name}`)
+      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/100x100&${friend.name}`)
         .then(response => response.url));
       const images = await Promise.all(imagePromises);
       setFriendImages(images);

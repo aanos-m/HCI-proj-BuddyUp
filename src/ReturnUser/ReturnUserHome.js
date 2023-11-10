@@ -7,6 +7,20 @@ import BuddyUp from "../components/images/BuddyUp.png";
 const ReturnUserHome = () => {
 
   const [randomImage, setRandomImages] = useState([]);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [friendImages, setFriendImages] = useState([]);
+
+  useEffect(() => {
+    const fetchFriendImages = async () => {
+      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/100x100&${friend.name}`)
+        .then(response => response.url));
+      const images = await Promise.all(imagePromises);
+      setFriendImages(images);
+    };
+
+    fetchFriendImages();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     // Fetch random image URLs for each friend
@@ -179,9 +193,10 @@ const ReturnUserHome = () => {
                                               fontSize: '18px',
                                               fontWeight: '500'
                             }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                      {/* <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                         <AccountBoxIcon/>
-                      </svg>
+                      </svg> */}
+                      <img src={friendImages[index]} alt="img" style={{ borderRadius: '50%', height: '30px', width: '30px' }} />
                       <span>{friend.name}</span>
                       <span>{friend.date}</span>
                     </div>
