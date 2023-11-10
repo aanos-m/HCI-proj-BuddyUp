@@ -38,8 +38,8 @@ const CreateAccount = ({ newUserObj, setNewUserObj }) => {
             <input className="text-wrapper-2" type="text" placeholder="Year"
             onChange={(e) => handleInputChange('year', e.target.value)}/>
 
-            <input className="text-wrapper-2" type="text" placeholder="DOB"
-            onChange={(e) => handleInputChange('dob', e.target.value)}
+            <input className="text-wrapper-2" type="text" placeholder="Age"
+            onChange={(e) => handleInputChange('age', e.target.value)}
             />
 
             <input className="text-wrapper-2" type="text" placeholder="Major"

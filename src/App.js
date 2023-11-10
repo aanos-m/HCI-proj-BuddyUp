@@ -25,7 +25,7 @@ function App() {
   const [newUserObj, setNewUserObj] = useState({
     name: '',
     year: '',
-    dob: '',
+    age: '',
     major: '',
     minor: '',
     likes: '',
