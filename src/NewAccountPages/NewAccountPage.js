@@ -38,7 +38,7 @@ const NewAccountPage = ( { newUserObj } ) => {
               Name: {newUserObj.name}
             </li>
             <li>
-              age: {newUserObj.age}
+              Age: {newUserObj.age}
             </li>
             <li>
               Major: {newUserObj.major}
