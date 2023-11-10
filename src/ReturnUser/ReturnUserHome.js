@@ -7,7 +7,6 @@ import BuddyUp from "../components/images/BuddyUp.png";
 const ReturnUserHome = () => {
 
   const [randomImage, setRandomImages] = useState([]);
-  const [selectedFriend, setSelectedFriend] = useState(null);
   const [friendImages, setFriendImages] = useState([]);
 
   useEffect(() => {
