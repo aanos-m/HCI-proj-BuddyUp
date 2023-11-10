@@ -4,9 +4,7 @@ const MessagePopup = ({ onClose }) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
-    // Handle the message sending logic here
-    // You can validate and submit the message and close the popup when done.
-    // For simplicity, I'll just close the popup here.
+    alert('Message Sent')
     onClose();
   };
 
@@ -16,11 +14,11 @@ const MessagePopup = ({ onClose }) => {
     left: 0,
     width: '100%',
     height: '100%',
-    background: 'rgba(0, 0, 0, 0.3)', // Semi-transparent background
+    background: 'rgba(0, 0, 0, 0.3)', 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backdropFilter: 'blur(5px)', // Add the blur effect
+    backdropFilter: 'blur(5px)', 
   };
 
   const popupContentStyle = {
@@ -29,8 +27,8 @@ const MessagePopup = ({ onClose }) => {
     borderRadius: '5px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
     display: 'flex',
-    flexDirection: 'column', // Stack elements vertically
-    gap: '20px', // Add a gap of 20px between elements
+    flexDirection: 'column',
+    gap: '20px', 
   };
 
   return (
