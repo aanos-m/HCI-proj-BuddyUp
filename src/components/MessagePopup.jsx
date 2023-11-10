@@ -38,6 +38,11 @@ const MessagePopup = ({ onClose }) => {
       <div style={popupContentStyle} className="popup-content">
         <h2>Send Message</h2>
         <textarea
+          placeholder="Subject"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <textarea
           placeholder="Type your message here"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
