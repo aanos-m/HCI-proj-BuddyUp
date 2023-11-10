@@ -1,14 +1,28 @@
-import React, {useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Nav from '../Nav';
 import MessagePopup from '../components/MessagePopup';
+import MessageIcon from '@mui/icons-material/Message';
 
 
 const ReturnUser = () => {
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const [friendImages, setFriendImages] = useState([]);
+
+  useEffect(() => {
+    const fetchFriendImages = async () => {
+      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/280x190&${friend.name}`)
+        .then(response => response.url));
+      const images = await Promise.all(imagePromises);
+      setFriendImages(images);
+    };
+
+    fetchFriendImages();
+    // eslint-disable-next-line
+  }, []);
 
   const handleFriendClick = (friend) => {
     setSelectedFriend(friend);
@@ -108,19 +122,20 @@ const ReturnUser = () => {
                             backgroundColor: 'rgba(35, 100, 227, 0.08)',
                             borderBottom: '1px solid #000',
                             flexDirection: 'row',
-                            justifyContent: 'space-between',
+                            justifyContent: 'space-around',
                             alignItems: 'center',
                             gap: '20px',
-                            padding:'10px',
-                            margin: '10px',
                             fontSize: '18px',
-                            fontWeight: '500'
-          }} onClick={handleFriendClick}>
+                            fontWeight: '500',
+                            padding: '10px',
+                            margin: '10px 0',
+          }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
               <circle cx="11.5" cy="11" r="11" fill={friend.color}/>
             </svg>
+            <img src={friendImages[index]} alt="img" style={{ borderRadius: '50%', height: '30px', width: '30px' }} />
             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-              <AccountBoxIcon/>
+              <MessageIcon  onClick={handleFriendClick}/>
             </svg>
             <span>{friend.name}</span>
             <span>{friend.date}</span>
