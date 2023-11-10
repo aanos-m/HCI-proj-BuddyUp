@@ -11,8 +11,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  
-
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/CreateAccount`; 
@@ -20,10 +18,10 @@ const Login = () => {
   }
 
     const returnUser = () => {
-      if (username.length === 0 || password.length === 0) {
-        alert('Username and password fields cannot be empty');
-      } else if (username.length < 6 || password.length < 6) {
-        alert(`Username and password must be at least 6 characters long, respectively.`);
+      if (username !== 'test123' || password !== 'test123') {
+        alert('enter "test123" for both fields');
+      } else if ((username === 'test123' && password !== 'test123' ) || (username !== 'test123' && password === 'test123')) {
+        alert('enter "test123" for both fields');
       } else {
         let path = `/ReturnUser/Home`; 
       navigate(path);

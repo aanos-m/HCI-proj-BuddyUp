@@ -27,7 +27,6 @@ const ReturnUserHome = () => {
     // eslint-disable-next-line
   }, []);
 
-
   const friendsList = [
     {
       name: 'Joey',

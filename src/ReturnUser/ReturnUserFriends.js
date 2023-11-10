@@ -1,10 +1,24 @@
-import React from 'react'
+import React, {useState } from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Nav from '../Nav';
+import MessagePopup from '../components/MessagePopup';
 
 
 const ReturnUser = () => {
+
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+
+  const handleFriendClick = (friend) => {
+    setSelectedFriend(friend);
+    setPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setPopupVisible(false);
+    setSelectedFriend(null);
+  };
 
   const friendsList = [
     {
@@ -88,7 +102,7 @@ const ReturnUser = () => {
                   overflowY: 'scroll'}} >
         <div style={{height: '100%', width: '100%'}}>
           {friendsList.map((friend, index) => (
-          <div key={index} style={{ 
+          <div role='button' id='friendDiv' key={index} style={{ 
                             borderRadius: '20px',
                             display: 'flex',
                             backgroundColor: 'rgba(35, 100, 227, 0.08)',
@@ -101,7 +115,7 @@ const ReturnUser = () => {
                             margin: '10px',
                             fontSize: '18px',
                             fontWeight: '500'
-          }}>
+          }} onClick={handleFriendClick}>
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
               <circle cx="11.5" cy="11" r="11" fill={friend.color}/>
             </svg>
@@ -114,6 +128,9 @@ const ReturnUser = () => {
         ))}
         </div>
       </div>
+      {isPopupVisible && (
+        <MessagePopup onClose={closePopup} friend={selectedFriend} />
+      )}
 
       
       <div style={{ display: 'flex', flexDirection: 'column',
