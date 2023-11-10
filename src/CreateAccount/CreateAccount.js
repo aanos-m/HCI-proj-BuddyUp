@@ -6,7 +6,11 @@ import Me from "../components/images/Me.png";
 
 import { useNavigate } from 'react-router-dom';
 
-const CreateAccount = () => {
+const CreateAccount = ({ newUserObj, setNewUserObj }) => {
+
+  const handleInputChange = (field, value) => {
+    setNewUserObj((prevObj) => ({ ...prevObj, [field]: value }));
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,12 +32,28 @@ const CreateAccount = () => {
             <div role='button' onClick={()=>setIsOpen(!isOpen)} id='toggleBtn'> Toggle </div>
           </div>
 
-            <input className="text-wrapper-2" type="text" placeholder="Name"/>
-            <input className="text-wrapper-2" type="text" placeholder="Year"/>
-            <input className="text-wrapper-2" type="text" placeholder="DOB"/>
-            <input className="text-wrapper-2" type="text" placeholder="Major"/>
-            <input className="text-wrapper-2" type="text" placeholder="Minor"/>
-            <input className="text-wrapper-2" type="text" placeholder="Likes"/>
+            <input className="text-wrapper-2" type="text" placeholder="Name"
+              onChange={(e) => handleInputChange('name', e.target.value)}/>
+
+            <input className="text-wrapper-2" type="text" placeholder="Year"
+            onChange={(e) => handleInputChange('year', e.target.value)}/>
+
+            <input className="text-wrapper-2" type="text" placeholder="DOB"
+            onChange={(e) => handleInputChange('dob', e.target.value)}
+            />
+
+            <input className="text-wrapper-2" type="text" placeholder="Major"
+            onChange={(e) => handleInputChange('major', e.target.value)}
+            />
+
+            <input className="text-wrapper-2" type="text" placeholder="Minor"
+            onChange={(e) => handleInputChange('minor', e.target.value)}
+            />
+
+            <input className="text-wrapper-2" type="text" placeholder="Likes"
+            onChange={(e) => handleInputChange('likes', e.target.value)}
+            />
+
             <textarea  className="text-wrapper-2" type="text" placeholder="About Me" wrap='soft'
             style={{overflow:'hidden', resize:'none'}}/>
 

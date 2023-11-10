@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useState} from 'react';
 import { Routes,  Route } from 'react-router-dom';
 import CreateAccount from './CreateAccount/CreateAccount';
 import Login from './Login/Login';
@@ -19,16 +20,28 @@ import ReturnUserSearchConfirmAsk from './ReturnUser/ReturnUserSearchConfirmAsk'
 import MapScreen from './ReturnUser/MapScreen';
 
 function App() {
+
+
+  const [newUserObj, setNewUserObj] = useState({
+    name: '',
+    year: '',
+    dob: '',
+    major: '',
+    minor: '',
+    likes: '',
+  });
+
+
   return (
     <div className="App" >
       <Routes>
           <Route path='/' element={ <Login/>}/>
-          <Route exact path="/CreateAccount" element={ <CreateAccount/> } /> 
+          <Route exact path="/CreateAccount" element={ <CreateAccount newUserObj={newUserObj} setNewUserObj={setNewUserObj} /> } /> 
 
           <Route exact path="/NewAccount/Home" element={ <NewAccountHome/> } /> 
           <Route path='/NewAccount/Friends' element={ <NewAccountFriends/>} />
           <Route path='/NewAccount/Search' element={<NewAccountSearch/>} />
-          <Route path="/NewAccount/AccountPage" element={<NewAccountPage/>} />
+          <Route path="/NewAccount/AccountPage" element={<NewAccountPage newUserObj={newUserObj}/>} />
           <Route path="/NewAccount/Search/Confirm" element={<NewAccountSearchConfirm/>} />
           <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk/>} />
 

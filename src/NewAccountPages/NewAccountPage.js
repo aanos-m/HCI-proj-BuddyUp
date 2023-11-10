@@ -6,7 +6,7 @@ import './NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordPopup from '../components/ChangePasswordPopup';
 
-const NewAccountPage = () => {
+const NewAccountPage = ( { newUserObj } ) => {
   const [showChangePasswordPopup, setShowChangePasswordPopup] = useState(false);
 
   const openChangePasswordPopup = () => {
@@ -35,16 +35,16 @@ const NewAccountPage = () => {
 
           <ul>
             <li>
-              Name: Jackie Mendez
+              Name: {newUserObj.name}
             </li>
             <li>
-              Major: Computer Science
+              Major: {newUserObj.major}
             </li>
             <li>
-              Year: Senior
+              Year: {newUserObj.year}
             </li>
             <li>
-              Likes: Music, soccer, and art
+              Likes: {newUserObj.likes}
             </li>
           </ul>
           <button id='btnn' onClick={logout}>
