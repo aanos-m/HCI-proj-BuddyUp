@@ -96,6 +96,64 @@ const ReturnUserHome = () => {
     }
   ]
 
+  const happinessPhrases = [
+    "Endless smiles illuminate every moment.",
+    "Laughter dances in warm sunlight.",
+    "Joyful hearts sing in harmony.",
+    "Serenity blooms from within.",
+    "Blissful moments linger sweetly.",
+    "Radiant happiness colors everyday life.",
+    "Kindness sparks joyous connections.",
+    "Gratitude turns moments into treasures.",
+    "Love's embrace, pure happiness discovered.",
+    "Tranquil moments, pure euphoria experienced.",
+    "Heartfelt laughter echoes through time.",
+    "Contentment paints life's canvas beautifully.",
+    "Sunshine-kissed days, happiness blossoms.",
+    "Inner peace, a constant serenade.",
+    "Friendship's warmth, everlasting joy shared.",
+    "Giggles echo, happiness resonates freely.",
+    "Dreams realized, euphoria unfolds gracefully.",
+    "Warm embraces, happiness embraced tightly.",
+    "Positive vibes, happiness radiates outward.",
+    "Melodies of joy, heartbeats synchronized.",
+    "Serendipity smiles upon life's journey.",
+    "Optimism's glow, a perpetual sunrise.",
+    "Dancing in rain, pure elation.",
+    "A grateful heart, perpetual happiness.",
+    "Harmonious souls, happiness harmonized effortlessly.",
+    "Shared laughter, a treasure trove.",
+    "Love's laughter, a timeless melody.",
+    "Grateful hearts, joy multiplies exponentially.",
+    "Sunshine within, happiness shines brightly.",
+    "Tender moments, happiness whispers softly.",
+    "Pure joy flows effortlessly within.",
+    "Blooms of happiness, life's garden.",
+    "Gratitude's dance, perpetual celebration.",
+    "Heartfelt smiles, pure soul connection.",
+    "Serenity found in simple pleasures.",
+    "Love's symphony, a euphoric composition.",
+    "Moments cherished, happiness remembered.",
+    "Contented hearts, life's truest wealth.",
+    "Sunshine in hearts, warmth perpetual.",
+    "Shared laughter, bonds unbreakable.",
+    "Radiant joy, an inner sunrise.",
+    "Optimistic hearts, perpetual spring.",
+    "Laughter's dance, happiness' language.",
+    "Friendship's glow, eternal happiness.",
+    "Inner peace, life's sweetest melody.",
+    "Joyful echoes, heartbeats synchronized beautifully.",
+    "Grateful souls, happiness multiplied.",
+    "Sun-kissed moments, pure bliss.",
+    "Smiles exchanged, joy amplified.",
+    "Euphoria in simplicity, happiness."
+  ];
+  
+  const getRandomPhrase = () => {
+    const randomIndex = Math.floor(Math.random() * happinessPhrases.length);
+    return happinessPhrases[randomIndex];
+  };
+
   return (
     <>
     <img className="image" alt="BuddyUp" src={BuddyUp} />
@@ -131,7 +189,7 @@ const ReturnUserHome = () => {
                     <div>
                       
                       <img id="postImg" style={{width:'100%', height: '190px'}} src={randomImage[index]} alt='post imaging'/>
-                      <div style={{ border: '1px solid #000',
+                      <div id='friendPostContent'style={{ border: '1px solid #000',
                                               flexDirection: 'row',
                                               justifyContent: 'flex-start',
                                               backgroundColor: 'white',
@@ -144,7 +202,7 @@ const ReturnUserHome = () => {
                                               borderRadius: '20px',
 
 
-                      }}> SO fun!!</div>
+                      }}> {getRandomPhrase()}</div>
                     </div>
                 </div>
                   ))}
