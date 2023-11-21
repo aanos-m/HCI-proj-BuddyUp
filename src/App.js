@@ -29,6 +29,7 @@ function App() {
     major: '',
     minor: '',
     likes: '',
+    aboutMe: ''
   });
 
 
