@@ -5,9 +5,14 @@ const MessagePopup = ({ onClose }) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
-    alert('Message Sent');
-    onClose();
+    if (message.trim() === '') {
+      alert('Please enter a non-empty message before sending.');
+    } else {
+      alert('Message Sent');
+      onClose();
+    }
   };
+  
 
   const popupStyle = {
     position: 'fixed',
