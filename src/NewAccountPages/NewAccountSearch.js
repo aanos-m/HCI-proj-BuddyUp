@@ -7,7 +7,31 @@ import DropDown from '../components/DropDown';
 
 import { useNavigate } from 'react-router-dom';
 
-const NewAccountSearch = () => {
+const NewAccountSearch = ( {friendList, setFriendList} ) => {
+
+  const handleNameChange = (selectedName) => {
+    setFriendList((prevFriendList) => ({
+      ...prevFriendList,
+      stuName: selectedName,
+    }));
+  };
+
+  // Callback function to update friendList with selected class
+  const handleClassChange = (selectedClass) => {
+    setFriendList((prevFriendList) => ({
+      ...prevFriendList,
+      class: selectedClass,
+    }));
+  };
+
+  // Callback function to update friendList with selected place
+  const handlePlaceChange = (selectedPlace) => {
+    setFriendList((prevFriendList) => ({
+      ...prevFriendList,
+      place: selectedPlace,
+    }));
+  };
+
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/NewAccount/Search/Confirm`; 
@@ -20,9 +44,9 @@ const NewAccountSearch = () => {
         <img className="image" alt="BuddyUp" src={BuddyUp} />
           <div id='screenDiv'>
 
-              <DropDown name=" Search Nearby " option1="Mary Mendez" option2="John Jackson" option3="Phil Jackson"/>
-              <DropDown name=" Search Groups " option1="Computer Science 1" option2="Music" option3="Pysch 1301"/> 
-              <DropDown name=" Location " option1="ECSW" option2="JO" option3="Green Hall"/> 
+              <DropDown onSelect={handleNameChange} name=" Search Nearby " option1="Mary Mendez" option2="John Jackson" option3="Phil Jackson" />
+              <DropDown onSelect={handleClassChange} name=" Search Groups " option1="Computer Science 1" option2="Music" option3="Pysch 1301"/> 
+              <DropDown onSelect={handlePlaceChange} name=" Location " option1="ECSW" option2="JO" option3="Green Hall"/> 
 
           </div>
       </div>

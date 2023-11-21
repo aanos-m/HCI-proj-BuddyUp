@@ -7,7 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import './NewAccountSearchConfirm.css';
 
-const NewAccountSearchConfirm = (props) => {
+const NewAccountSearchConfirm = ({ friendList }) => {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
@@ -19,7 +19,6 @@ const NewAccountSearchConfirm = (props) => {
         let path = `/NewAccount/Search`; 
         navigate(path);
       }
-  
 
   return (
     <>
@@ -33,13 +32,13 @@ const NewAccountSearchConfirm = (props) => {
 
           <ul>
             <li>
-              Name: Mary Mendez 
+              Name: {friendList.stuName}
             </li>
             <li>
-              Studying: Computer Science 1
+              Studying: {friendList.class}
             </li>
             <li>
-              Location: ECSW
+              Location: {friendList.place}
             </li>
           </ul>       
         </div>
