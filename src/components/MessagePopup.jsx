@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 const MessagePopup = ({ onClose }) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
-    alert('Message Sent')
+    alert('Message Sent');
     onClose();
   };
 
@@ -31,13 +32,15 @@ const MessagePopup = ({ onClose }) => {
     gap: '20px', 
   };
 
+
   return (
     <div style={popupStyle}>
       <div style={popupContentStyle} className="popup-content">
-        <h2>Send Message</h2>
-        <input
-          placeholder="Subject"
-        />
+        <div style={{display: 'flex', flexDirection: 'row', gap: '10px', justifyContent: 'center', alignContent: 'center'}} >
+         <h2>Send Message</h2> 
+         <CloseIcon onClick={onClose}/>
+        </div>
+        <input placeholder="Subject" />
         <textarea
           placeholder="Type your message here"
           value={message}
