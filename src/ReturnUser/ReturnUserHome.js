@@ -40,74 +40,148 @@ const ReturnUserHome = () => {
     // eslint-disable-next-line
   }, []);
 
+  // const friendsList = [
+  //   {
+  //     name: 'Joey',
+  //     date: '08/01/23',
+  //     icon: <AccountBoxIcon/>,
+  //   },
+  //   {
+  //     name: 'Lily',
+  //     date: '08/12/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Josh',
+  //     date: '09/16/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Simon',
+  //     date: '08/10/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Skade',
+  //     date: '08/19/23',
+  //     icon: <AccountBoxIcon/>,
+  //   },
+  //   {
+  //     name: 'Adam',
+  //     date: '09/01/23',
+  //     icon: <AccountBoxIcon/>,
+  //   },
+  //   {
+  //     name: 'Lucy',
+  //     date: '10/10/23',
+  //     icon: <AccountBoxIcon/>,
+  //   },
+  //   {
+  //     name: 'Edward',
+  //     date: '08/02/23',
+  //     icon: <AccountBoxIcon/>,
+  //   },
+  //   {
+  //     name: 'Micheal',
+  //     date: '09/20/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Billy',
+  //     date: '10/23/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Jack',
+  //     date: '09/20/23',
+  //     icon: <AccountBoxIcon/>,
+
+  //   },
+  //   {
+  //     name: 'Allysa',
+  //     date: '12/02/23',
+  //     icon: <AccountBoxIcon/>,
+  //   }
+  // ]
+
   const friendsList = [
     {
-      name: 'Joey',
+      name: 'Jonez',
       date: '08/01/23',
-      icon: <AccountBoxIcon/>,
+      color: '#12FF8D'
     },
     {
-      name: 'Lily',
+      name: 'Leela',
       date: '08/12/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#FF1212'
     },
     {
-      name: 'Josh',
+      name: 'Jayla',
       date: '09/16/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#FFE712'
     },
     {
-      name: 'Simon',
+      name: 'Smith',
       date: '08/10/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#12FF8D'
     },
     {
       name: 'Skade',
       date: '08/19/23',
-      icon: <AccountBoxIcon/>,
+      icon: <AccountBoxIcon />,
+      color: '#FF1212'
     },
     {
-      name: 'Adam',
+      name: 'Aaron',
       date: '09/01/23',
-      icon: <AccountBoxIcon/>,
+      icon: <AccountBoxIcon />,
+      color: '#FFE712'
     },
     {
-      name: 'Lucy',
+      name: 'Lucas',
       date: '10/10/23',
-      icon: <AccountBoxIcon/>,
+      icon: <AccountBoxIcon />,
+      color: '#12FF8D'
     },
     {
-      name: 'Edward',
+      name: 'Eddie',
       date: '08/02/23',
-      icon: <AccountBoxIcon/>,
+      icon: <AccountBoxIcon />,
+      color: '#FF1212'
     },
     {
-      name: 'Micheal',
+      name: 'Mikee',
       date: '09/20/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#FFE712'
     },
     {
       name: 'Billy',
       date: '10/23/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#12FF8D'
     },
     {
-      name: 'Jack',
+      name: 'Jacky',
       date: '09/20/23',
-      icon: <AccountBoxIcon/>,
-
+      icon: <AccountBoxIcon />,
+      color: '#FF1212'
     },
     {
-      name: 'Allysa',
+      name: 'Alysa',
       date: '12/02/23',
-      icon: <AccountBoxIcon/>,
+      icon: <AccountBoxIcon />,
+      color: '#FFE712'
     }
-  ]
+  ];
 
   const happinessPhrases = [
     "Endless smiles illuminate every moment.",

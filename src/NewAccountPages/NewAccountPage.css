@@ -75,3 +75,14 @@ ul {
     width: 170px;
     border: none;
 }
+
+/* styles.css or your CSS module */
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = ({ newUserObj, setNewUserObj }) => {
   const MAX_CHARACTER_LIMIT_AGE = 2;
-  const MAX_CHARACTER_LIMIT_ABOUT_ME = 200
+  // const MAX_CHARACTER_LIMIT_ABOUT_ME = 60
 
   const handleInputChange = (field, value) => {
     let maxCharacterLimit;
@@ -16,9 +16,9 @@ const CreateAccount = ({ newUserObj, setNewUserObj }) => {
       case 'age':
         maxCharacterLimit = MAX_CHARACTER_LIMIT_AGE;
         break;
-      case 'aboutMe':
-        maxCharacterLimit = MAX_CHARACTER_LIMIT_ABOUT_ME;
-        break;
+      // case 'aboutMe':
+      //   maxCharacterLimit = MAX_CHARACTER_LIMIT_ABOUT_ME;
+      //   break;
       default:
         maxCharacterLimit = 25; // No character limit for other fields
     }
@@ -32,7 +32,7 @@ const CreateAccount = ({ newUserObj, setNewUserObj }) => {
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    if (newUserObj.name && newUserObj.year && newUserObj.age && newUserObj.major && newUserObj.minor && newUserObj.likes && newUserObj.aboutMe) {
+    if (newUserObj.name && newUserObj.year && newUserObj.age && newUserObj.major && newUserObj.minor && newUserObj.likes) {
       let path = `/NewAccount/Home`;
       navigate(path);
     } else {
@@ -60,7 +60,7 @@ const CreateAccount = ({ newUserObj, setNewUserObj }) => {
             <input className="text-wrapper-2" type="text" placeholder="Name" value={newUserObj.name}
               onChange={(e) => handleInputChange('name', e.target.value)}/>
 
-            <input className="text-wrapper-2" type="text" placeholder="Year" value={newUserObj.year}
+            <input className="text-wrapper-2" type="text" placeholder="Gradutaion Year" value={newUserObj.year}
             onChange={(e) => handleInputChange('year', e.target.value)}/>
 
             <input className="text-wrapper-2" type="text" placeholder="Age" value={newUserObj.age}
@@ -79,9 +79,9 @@ const CreateAccount = ({ newUserObj, setNewUserObj }) => {
             onChange={(e) => handleInputChange('likes', e.target.value)}
             />
 
-            <textarea  className="text-wrapper-2" type="text" placeholder="About Me" wrap='soft' value={newUserObj.aboutMe}
+            {/* <textarea  className="text-wrapper-2" type="text" placeholder="About Me" wrap='soft' value={newUserObj.aboutMe}
             onChange={(e) => handleInputChange('aboutMe', e.target.value)}
-            style={{overflow:'hidden', resize:'none'}}/>
+            style={{overflow: 'hidden', resize:'none'}}/> */}
 
         </div>
         
