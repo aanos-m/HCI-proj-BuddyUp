@@ -11,16 +11,3 @@
     width: 390px;
     box-shadow: 0px 4px 4px #00000040;
 }
-
-@media (max-width: 390px) {
-    .App {
-        width: 100%; /* Adjust the width for smaller screens */
-    }
-}
-
-/* Media query for screens smaller than 844px height */
-@media (max-height: 844px) {
-    .App {
-        height: 100%; /* Adjust the height for smaller screens */
-    }
-}
