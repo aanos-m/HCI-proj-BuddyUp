@@ -140,7 +140,7 @@ const ReturnUser = () => {
   };
 
   const iconStyle = {
-    color: 'yellow',
+    color: '#FFD700',
     position: 'relative',
     left: '150px',
     top: '-10px',
