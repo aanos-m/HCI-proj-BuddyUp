@@ -11,15 +11,17 @@ const CustomModal = ({ isOpen, onRequestClose, modals }) => {
         position: 'absolute',
         top: '50%',
         left: '50%',
+        width: '300px',
+        height: '360px',
         transform: 'translate(-50%, -50%)',
         padding: '20px',
         borderRadius: '10px',
         textAlign: 'center',
         display: 'flex',
+        justifyContent: 'space-between',
         flexDirection: 'column', // Arrange items in a column
         alignItems: 'center', // Align items to the start
-        width: 'auto',
-        maxHeight: 'auto',
+        
     },
   };
 
