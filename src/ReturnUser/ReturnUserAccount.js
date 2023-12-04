@@ -82,9 +82,10 @@ const ReturnUserAccount = () => {
             justifyContent: 'center',
             left: '110px',
             top: '620px',
-            width: '180px',
+            width: 'auto',
             border: 'none',
-            fontWeight: '600',
+            fontWeight: '400',
+            padding: '10px'
           }}> 
           <SettingsIcon style={iconStyle}/> Change Password
         </button>
@@ -105,9 +106,9 @@ const ReturnUserAccount = () => {
             justifyContent: 'center',
             left: '110px',
             top: '620px',
-            width: '180px',
             border: 'none',
-            fontWeight: '600'
+            fontWeight: '400',
+            width: '180px',
           }}>
             <LogoutIcon/> Logout
         </button>

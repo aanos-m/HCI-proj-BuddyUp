@@ -81,9 +81,9 @@ const NewAccountPage = ( { newUserObj } ) => {
             justifyContent: 'center',
             left: '110px',
             top: '620px',
-            width: '180px',
+            width: 'auto',
             border: 'none',
-            fontWeight: '600',
+            fontWeight: '400',
           }}> 
           <SettingsIcon style={iconStyle}/> Change Password
         </button>
@@ -104,9 +104,9 @@ const NewAccountPage = ( { newUserObj } ) => {
             justifyContent: 'center',
             left: '110px',
             top: '620px',
-            width: '180px',
+            width: '170px',
             border: 'none',
-            fontWeight: '600'
+            fontWeight: '400'
           }}>
             <LogoutIcon/> Logout
         </button>

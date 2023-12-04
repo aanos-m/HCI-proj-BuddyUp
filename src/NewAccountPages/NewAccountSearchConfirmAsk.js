@@ -3,39 +3,47 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 import CheckIcon from '@mui/icons-material/Check';
 import Me from "../components/images/person.png";
+import { useNavigate } from 'react-router-dom';
 
-const NewAccountSearchConfirmAsk = () => {
+const NewAccountSearchConfirmAsk = ( {friendList }) => {
 
-    function alertFriend() {
-        alert("Friend Added");
-    }
+  const navigate = useNavigate();
+
+  // Function to handle adding a friend
+  function alertFriend() {
+    // Get the friend's name (you may need to modify this based on your data)
+    const friendName = `${friendList.stuName}`; // Replace with your actual data
+
+    // Show the alert
+    alert("Friend Added");
+
+    // Navigate to NewAccountFriends with the friend's name as a parameter
+    navigate(`/NewAccount/Friends/${friendName}`);
+  }
+
   return (
     <>
     <div className='newAccountPage'>
       <img className="image" alt="BuddyUp" src={BuddyUp} />
       <div id='screenDiv' style={ {
         alignContent: 'center'
-      }}>
-        
+      }}>       
         <div className="ellipse" role='button'>
           <img alt="profile pic" src= {Me} />
         </div>
-
         <ul>
           <li>
-            Name: Mary Mendez
+            Name: {friendList.stuName}
           </li>
         </ul>
-
         <h1 style={{ fontWeight: 'bold'}}> 
             You're study session is confirmed! YAY!
-        </h1>
-      
-      
+        </h1> 
       </div>
     </div>
 
-    <div style={{ display: 'flex', flexDirection: 'column',
+    <div 
+    style={{ display: 'flex', flexDirection: 'column',
                   gap: '20px', 
                   position: 'absolute', bottom: '0px', justifyContent: 'center',
                   alignContent: 'center', alignItems: 'center'

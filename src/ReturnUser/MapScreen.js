@@ -29,7 +29,23 @@ const MapScreen = () => {
                     alignContent: 'center', alignItems: 'center'
                     }}>
 
-        <button id='btn' onClick={routeChange}>
+        <button onClick={routeChange} style={{
+          alignItems: 'center',
+          color: 'white',
+          backgroundColor: '#2264e2',
+          borderRadius: '15px',
+          boxShadow: '0px 4px 4px #00000040',
+          display: 'flex',
+          gap: '10px',
+          height: '40px',
+          justifyContent: 'center',
+          left: '110px',
+          top: '620px',
+          width: 'auto',
+          border: 'none',
+          fontWeight: '400',
+          padding: '20px'
+        }}>
           Filter Search
         </button>
         <Nav />

@@ -111,7 +111,7 @@ const ReturnUser = () => {
   
   
 
-  const [isBeeping, setIsBeeping] = useState(false);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modals = [
@@ -119,7 +119,8 @@ const ReturnUser = () => {
     { color: 'yellow', text: 'Friend is busy' },
     { color: 'green', text: 'Friend is avaliable' },
   ];
-
+  
+  const [isBeeping, setIsBeeping] = useState(false);
   useEffect(() => {
     const beepInterval = setInterval(() => {
       setIsBeeping((prev) => !prev);

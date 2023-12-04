@@ -24,7 +24,7 @@ const NewAccountSearchConfirm = ({ friendList }) => {
     <>
     <div className='NewAccountSearchConfirm'>
     <img className="image" alt="BuddyUp" src={BuddyUp} />
-        <div id='screenDiv'>
+        <div id='screenDiv' style={{  height: 'calc(100vh - 30rem)'}}>
           
           <div className="ellipse" role='button'>
             <img alt="profile pic" src= {Me} />
