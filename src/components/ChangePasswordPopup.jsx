@@ -11,6 +11,10 @@ const ChangePasswordPopup = ({ onClose }) => {
     onClose();
   };
 
+  const handleCancel = () => {
+    onClose();
+  }
+
   const popupStyle = {
     position: 'fixed',
     top: 0,
@@ -52,6 +56,7 @@ const ChangePasswordPopup = ({ onClose }) => {
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <button onClick={handleConfirm}>Confirm</button>
+      <button onClick={handleCancel}>Cancel</button>
     </div>
   </div>
   );

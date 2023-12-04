@@ -50,8 +50,8 @@ const ReturnUserSearch = ({friendList, setFriendList} ) => {
         <div id='screenDiv'>
 
           <DropDown onSelect={handleNameChange} name=" Search Nearby " option1="Mary Mendez" option2="John Jackson" option3="Phil Jackson" />
-          <DropDown onSelect={handleClassChange} name=" Search Groups " option1="Computer Science 1" option2="Music" option3="Pysch 1301"/> 
-          <DropDown onSelect={handlePlaceChange} name=" Location " option1="ECSW" option2="JO" option3="Green Hall"/> 
+          <DropDown onSelect={handleClassChange} name=" Choose a Topic " option1="Operating Systems" option2="Databases" option3="Miscellaneous"/> 
+          <DropDown onSelect={handlePlaceChange} name=" Location " option1="ECSW" option2="ECSS" option3="Green Hall" option4="Library"/> 
 
         </div>
       </div>

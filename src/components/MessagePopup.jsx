@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 const MessagePopup = ({ onClose }) => {
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSend = () => {
     if (message.trim() === '') {
@@ -12,6 +15,12 @@ const MessagePopup = ({ onClose }) => {
       onClose();
     }
   };
+
+  const handleCancel = () => {
+    // navigate('/ReturnUser/Friends');
+    onClose();
+  };
+
   
 
   const popupStyle = {
@@ -52,6 +61,7 @@ const MessagePopup = ({ onClose }) => {
           onChange={(e) => setMessage(e.target.value)}
         />
         <button onClick={handleSend}>Send</button>
+        <button onClick={handleCancel}>Cancel</button>
       </div>
     </div>
   );
