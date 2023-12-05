@@ -247,53 +247,51 @@ const ReturnUserHome = () => {
                   overflow: 'hidden',
                   overflowY: 'scroll'}} >
 
-        <div style={{height: '100%', width: '100%'}}>
-          <div style={{ display: 'flex', flexDirection: 'column'}}>
-                {friendsList.map((friend, index) => (
-                <div id="post" style={{ display: 'flex', flexDirection: 'column', margin:'10px', borderRadius: '10px', backgroundColor: 'rgba(35, 100, 227, 0.08)'}}>
-                    <div key={index} 
-                              style={{ 
-                                              borderRadius: '20px',
-                                              display: 'flex',
-                                              backgroundColor: 'rgba(35, 100, 227, 0.08)',
-                                              borderBottom: '1px solid #000',
-                                              flexDirection: 'row',
-                                              justifyContent: 'space-between',
-                                              alignItems: 'center',
-                                              gap: '20px',
-                                              padding:'10px',
-                                              margin: '10px',
-                                              fontSize: '18px',
-                                              fontWeight: '500'
-                            }}>
-                      {/* <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-                        <AccountBoxIcon/>
-                      </svg> */}
-                      <img src={friendImages[index]} alt="img" style={{ borderRadius: '50%', height: '30px', width: '30px' }} />
-                      <span>{friend.name}</span>
-                      <span>{friend.date}</span>
-                    </div>
-                    <div>
-                      
-                      <img id="postImg" style={{width:'100%', height: '190px'}} src={randomImage[index]} alt='post imaging'/>
-                      <div id='friendPostContent'style={{ border: '1px solid #000',
-                                              flexDirection: 'row',
-                                              justifyContent: 'flex-start',
-                                              backgroundColor: 'white',
-                                              alignItems: 'center',
-                                              gap: '20px',
-                                              padding:'10px',
-                                              margin: '10px',
-                                              fontSize: '18px',
-                                              fontWeight: '500',
-                                              borderRadius: '20px',
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+          {friendsList.map((friend, index) => (
+          <div id="post" style={{ display: 'flex', flexDirection: 'column', margin:'10px', borderRadius: '10px', backgroundColor: 'rgba(35, 100, 227, 0.08)'}}>
+              <div key={index} 
+                        style={{ 
+                                        borderRadius: '20px',
+                                        display: 'flex',
+                                        backgroundColor: 'rgba(35, 100, 227, 0.08)',
+                                        borderBottom: '1px solid #000',
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        gap: '20px',
+                                        padding:'10px',
+                                        margin: '10px',
+                                        fontSize: '18px',
+                                        fontWeight: '500'
+                      }}>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                  <AccountBoxIcon/>
+                </svg> */}
+                <img src={friendImages[index]} alt="img" style={{ borderRadius: '50%', height: '30px', width: '30px' }} />
+                <span textAlign='center'>{friend.name}</span>
+                <span>{friend.date}</span>
+              </div>
+              <div>
+                
+                <img id="postImg" style={{width:'100%', height: '190px'}} src={randomImage[index]} alt='post imaging'/>
+                <div id='friendPostContent'style={{ border: '1px solid #000',
+                                        flexDirection: 'row',
+                                        justifyContent: 'flex-start',
+                                        backgroundColor: 'white',
+                                        alignItems: 'center',
+                                        gap: '20px',
+                                        padding:'10px',
+                                        margin: '10px',
+                                        fontSize: '18px',
+                                        fontWeight: '500',
+                                        borderRadius: '20px',
 
 
-                      }}> {getRandomPhrase()}</div>
-                    </div>
-                </div>
-                  ))}
-            </div>
+                }}> {getRandomPhrase()}</div>
+              </div>
+          </div>
+        ))}
         </div>
       </div>
 

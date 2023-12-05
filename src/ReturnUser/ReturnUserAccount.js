@@ -5,6 +5,9 @@ import Me from "../components/images/Me.png";
 import '../NewAccountPages/NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordPopup from '../components/ChangePasswordPopup';
+import { Avatar, Button, Card, Typography, Box } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 const ReturnUserAccount = () => {
@@ -18,7 +21,6 @@ const ReturnUserAccount = () => {
   const closeChangePasswordPopup = () => {
     setShowChangePasswordPopup(false);
   };
-
   
   let navigate = useNavigate(); 
   const logout = () =>{ 
@@ -36,26 +38,33 @@ const ReturnUserAccount = () => {
             <img alt="profile pic" src= {Me} />
           </div>
 
-          <ul>
-            <li>
-              Name: Jackie Mendez
-            </li>
-            <li>
-              Major: Computer Science
-            </li>
-            <li>
-              Year: Senior
-            </li>
-            <li>
-              Likes: Music, soccer, and art
-            </li>
-          </ul>
-          <button id='btnn' onClick={logout}>
-            Logout
-          </button>
-        
+          <Typography variant="h4" gutterBottom>
+          Jackie Mendez
+          </Typography>
+          <Typography variant="h6" color="textSecondary">
+            Senior
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            Computer Science
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary" sx={{ mb: 2 }}>
+            Interested in: Music, soccer, and food
+          </Typography>
+          <Button variant="outlined" color="primary" onClick={openChangePasswordPopup} sx={{ mb: 1 }}>
+          <SettingsIcon/> Change Password
+          </Button>
+          
+            {showChangePasswordPopup && (
+            <ChangePasswordPopup onClose={closeChangePasswordPopup} />
+            )}  
+            
         </div>
+        <Button variant="contained" color="error"  onClick={logout}>
+        <LogoutIcon/> Logout
+        </Button>
       </div>
+      
+      
 
       <div style={{ display: 'flex', flexDirection: 'column',
                     gap: '20px', 
@@ -63,17 +72,7 @@ const ReturnUserAccount = () => {
                     alignContent: 'center', alignItems: 'center'
                     }}>
 
-        <button id='btn' onClick={openChangePasswordPopup}>
-          Change Password
-        </button>
-        {showChangePasswordPopup && (
-        <ChangePasswordPopup onClose={closeChangePasswordPopup} />
-      )}
-
-        <button id='btn'>
-          Change Settings
-        </button>
-      
+            
         <Nav />
       </div>
   </>

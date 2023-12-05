@@ -136,7 +136,7 @@ const ReturnUser = () => {
       date: '09/20/23',
       icon: <AccountBoxIcon />,
       color: '#FF1212',
-      status: 'available',
+      status: 'busy',
     },
     {
       name: 'Alysa',
@@ -235,18 +235,18 @@ const ReturnUser = () => {
         <List>
           {friendsList.map((friend, index) => (
             <React.Fragment key={friend.name} >
-              <ListItem alignItems='flex-start' button onClick={() => handleFriendClick(friend)}>
+              <ListItem alignItems='center'>
                 <ListItemAvatar>
                   <span style={{
                     height: '18px',
                     width: '18px',
                     backgroundColor: getStatusColor(friend.status),
                     borderRadius: '50%',
-                    display: 'flex',
-                    top: '50%',
-                    // alignItems: 'center',
-                    // justifyContent: 'center',
-                    // marginRight: '16px',
+                    display: 'inline-flex',
+                    top: '35%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '2px',
                     position: 'absolute',
                     right: 0,
                     bottom: 0,
@@ -265,15 +265,15 @@ const ReturnUser = () => {
                   </Typography>
                 }
                 />
-                {/* <IconButton edge="end" aria-label="message" onClick={() => {}}>
-                  <MessageIcon />
+                <IconButton edge="end" aria-label="message" onClick={() => {}}>
+                  <MessageIcon fontSize='large'/>
                 </IconButton>
                 <Typography
                   sx={{ marginRight: 2 }}
                   component="span"
                   variant="body2"
                   style={{ backgroundColor: getColor(friend.color), borderRadius: '50%' }}
-                /> */}
+                />
               </ListItem>
               <Divider variant="inset" component="li" />
             </React.Fragment>
