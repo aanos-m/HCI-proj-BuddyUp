@@ -24,7 +24,7 @@ const NewAccountSearchConfirm = ({ friendList }) => {
     <>
     <div className='NewAccountSearchConfirm'>
     <img className="image" alt="BuddyUp" src={BuddyUp} />
-        <div id='screenDiv'>
+        <div id='screenDiv' style={{ justifyContent: 'center', alignContent: 'center', }}>
           
           <div className="ellipse" role='button'>
             <img alt="profile pic" src= {Me} />
@@ -40,7 +40,10 @@ const NewAccountSearchConfirm = ({ friendList }) => {
             <li>
               Location: {friendList.place}
             </li>
-          </ul>       
+          </ul>      
+          <h2 style={{ justifyContent: 'center'}}>
+              Don't forget to request!!
+          </h2> 
         </div>
     </div>
 

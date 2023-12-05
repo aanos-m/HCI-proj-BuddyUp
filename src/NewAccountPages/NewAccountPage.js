@@ -1,25 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 import Me from "../components/images/Me.png";
 import './NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
-// import ChangePasswordPopup from '../components/ChangePasswordPopup';
+import ChangePasswordPopup from '../components/ChangePasswordPopup';
 import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const NewAccountPage = ( { newUserObj } ) => {
-  // const [showChangePasswordPopup, setShowChangePasswordPopup] = useState(false);
 
-  // const openChangePasswordPopup = () => {
-  //   setShowChangePasswordPopup(true);
-  // };
+  const [showChangePasswordPopup, setShowChangePasswordPopup] = useState(false);
 
-  // const closeChangePasswordPopup = () => {
-  //   setShowChangePasswordPopup(false);
-  // };
+  const openChangePasswordPopup = () => {
+    setShowChangePasswordPopup(true);
+  };
 
-  const handleClick = () => {
-    alert('bada bing bada boom\nim still working on things');
+  const closeChangePasswordPopup = () => {
+    setShowChangePasswordPopup(false);
   };
 
   let navigate = useNavigate(); 
@@ -30,22 +28,17 @@ const NewAccountPage = ( { newUserObj } ) => {
 
   const iconStyle = {
     animation: 'rotate 2s linear infinite', // Adjust the duration and timing function as needed
-    position: 'relative',
-    left: '290px',
-    top: '-40px',
   };
 
   return (
     <>
       <div className='newAccountPage'>
         <img className="image" alt="BuddyUp" src={BuddyUp} />
-        <SettingsIcon style={ iconStyle} onClick={handleClick}/>
+        
         <div id='screenDiv'>
-          
           <div className="ellipse" role='button'>
             <img alt="profile pic" src= {Me} />
           </div>
-
           <ul>
               <li>
                 Name: {newUserObj.name}
@@ -65,32 +58,59 @@ const NewAccountPage = ( { newUserObj } ) => {
               <li>
                 Likes: {newUserObj.likes}
               </li>
-              
-          </ul>
-          <button id='btnn' onClick={logout}>
-            Logout
-          </button>
-        
+          </ul>        
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column',
-                    gap: '20px', 
-                    position: 'absolute', bottom: '0px', justifyContent: 'center',
-                    alignContent: 'center', alignItems: 'center'
-                    }}>
-
-        {/* <button id='btn' onClick={openChangePasswordPopup}>
-          Change Password
+      <div 
+      style={{ display: 'flex', flexDirection: 'column',
+              gap: '20px', 
+              position: 'absolute', bottom: '0px', justifyContent: 'center',
+              alignContent: 'center', alignItems: 'center'}}>
+          
+        <button onClick={openChangePasswordPopup}
+          style={{
+            alignItems: 'center',
+            color: 'white',
+            backgroundColor: '#2264e2',
+            borderRadius: '15px',
+            boxShadow: '0px 4px 4px #00000040',
+            display: 'flex',
+            gap: '10px',
+            height: '40px',
+            justifyContent: 'center',
+            left: '110px',
+            top: '620px',
+            width: 'auto',
+            border: 'none',
+            fontWeight: '400',
+          }}> 
+          <SettingsIcon style={iconStyle}/> Change Password
         </button>
         {showChangePasswordPopup && (
-        <ChangePasswordPopup onClose={closeChangePasswordPopup} />
-      )}
+          <ChangePasswordPopup onClose={closeChangePasswordPopup} />
+        )}
 
-        <button id='btn'>
-          Change Settings
-        </button> */}
-      
+        <button onClick={logout} 
+          style={{
+            alignItems: 'center',
+            color: 'white',
+            backgroundColor: '#e22f22',
+            borderRadius: '15px',
+            boxShadow: '0px 4px 4px #00000040',
+            display: 'flex',
+            gap: '10px',
+            height: '40px',
+            justifyContent: 'center',
+            left: '110px',
+            top: '620px',
+            width: '170px',
+            border: 'none',
+            fontWeight: '400'
+          }}>
+            <LogoutIcon/> Logout
+        </button>
+
         <Navigation />
       </div>
   </>

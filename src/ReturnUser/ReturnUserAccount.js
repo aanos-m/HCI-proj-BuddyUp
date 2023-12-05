@@ -27,6 +27,9 @@ const ReturnUserAccount = () => {
     let path = `/`; 
     navigate(path);
   }
+  const iconStyle = {
+    animation: 'rotate 2s linear infinite', // Adjust the duration and timing function as needed
+  };
 
   return (
     <>

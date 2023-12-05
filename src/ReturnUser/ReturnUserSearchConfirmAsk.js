@@ -4,7 +4,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import Me from "../components/images/person.png";
 import BuddyUp from "../components/images/BuddyUp.png";
 
-const ReturnUserSearchConfirmAsk = () => {
+const ReturnUserSearchConfirmAsk = ({friendList }) => {
   function alertFriend() {
     alert("Friend Added");
 }
@@ -20,15 +20,12 @@ const ReturnUserSearchConfirmAsk = () => {
           <img alt="profile pic" src= {Me} />
         </div>
 
-        <ul>
-          <li>
-            Name: Mary Mendez
-          </li>
-        </ul>
-
+        <span>
+          Name: {friendList.stuName}
+        </span>
         <h1 style={{ fontWeight: 'bold'}}> 
-            You're study session is confirmed! YAY!
-        </h1>
+          You're study session is confirmed! YAY!
+        </h1> 
       
       
       </div>

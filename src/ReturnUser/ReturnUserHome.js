@@ -2,112 +2,11 @@ import React, {useState, useEffect} from 'react'
 import Nav from '../Nav';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BuddyUp from "../components/images/BuddyUp.png";
-
+import AddCommentIcon from '@mui/icons-material/AddComment';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const ReturnUserHome = () => {
-
-  const [randomImage, setRandomImages] = useState([]);
-  const [friendImages, setFriendImages] = useState([]);
-
-  useEffect(() => {
-    const fetchFriendImages = async () => {
-      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/100x100&${friend.name}`)
-        .then(response => response.url));
-      const images = await Promise.all(imagePromises);
-      setFriendImages(images);
-    };
-
-    fetchFriendImages();
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    // Fetch random image URLs for each friend
-    const fetchImageUrls = async () => {
-      const urls = await Promise.all(
-        friendsList.map(async (friend) => {
-          const response = await fetch(`https://source.unsplash.com/random/?group/280x190&${friend.name}`);
-          if (response.ok) {
-            return response.url;
-          }
-          return '';
-        })
-      );
-      setRandomImages(urls);
-    };
-
-    fetchImageUrls();
-    // eslint-disable-next-line
-  }, []);
-
-  // const friendsList = [
-  //   {
-  //     name: 'Joey',
-  //     date: '08/01/23',
-  //     icon: <AccountBoxIcon/>,
-  //   },
-  //   {
-  //     name: 'Lily',
-  //     date: '08/12/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Josh',
-  //     date: '09/16/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Simon',
-  //     date: '08/10/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Skade',
-  //     date: '08/19/23',
-  //     icon: <AccountBoxIcon/>,
-  //   },
-  //   {
-  //     name: 'Adam',
-  //     date: '09/01/23',
-  //     icon: <AccountBoxIcon/>,
-  //   },
-  //   {
-  //     name: 'Lucy',
-  //     date: '10/10/23',
-  //     icon: <AccountBoxIcon/>,
-  //   },
-  //   {
-  //     name: 'Edward',
-  //     date: '08/02/23',
-  //     icon: <AccountBoxIcon/>,
-  //   },
-  //   {
-  //     name: 'Micheal',
-  //     date: '09/20/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Billy',
-  //     date: '10/23/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Jack',
-  //     date: '09/20/23',
-  //     icon: <AccountBoxIcon/>,
-
-  //   },
-  //   {
-  //     name: 'Allysa',
-  //     date: '12/02/23',
-  //     icon: <AccountBoxIcon/>,
-  //   }
-  // ]
 
   const friendsList = [
     {
@@ -236,10 +135,72 @@ const ReturnUserHome = () => {
     "Euphoria in simplicity, happiness."
   ];
   
+
+  const [randomImage, setRandomImages] = useState([]);
+  const [friendImages, setFriendImages] = useState([]);
+  const [likedPosts, setLikedPosts] = useState(
+    friendsList.map(() => false) // Initialize with all posts as not liked
+  );
+  const [commentPopupIndex, setCommentPopupIndex] = useState(null);
+  const [comments, setComments] = useState(friendsList.map(() => ''));
+
+  useEffect(() => {
+    const fetchFriendImages = async () => {
+      const imagePromises = friendsList.map((friend) => fetch(`https://source.unsplash.com/random/?person/100x100&${friend.name}`)
+        .then(response => response.url));
+      const images = await Promise.all(imagePromises);
+      setFriendImages(images);
+    };
+
+    fetchFriendImages();
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    // Fetch random image URLs for each friend
+    const fetchImageUrls = async () => {
+      const urls = await Promise.all(
+        friendsList.map(async (friend) => {
+          const response = await fetch(`https://source.unsplash.com/random/?group/280x190&${friend.name}`);
+          if (response.ok) {
+            return response.url;
+          }
+          return '';
+        })
+      );
+      setRandomImages(urls);
+    };
+
+    fetchImageUrls();
+    // eslint-disable-next-line
+  }, []);
+
+  const handleLikeClick = (index) => {
+    // Toggle like status for the clicked post
+    const updatedLikedPosts = [...likedPosts];
+    updatedLikedPosts[index] = !updatedLikedPosts[index];
+    setLikedPosts(updatedLikedPosts);
+  };
+
   const getRandomPhrase = () => {
     const randomIndex = Math.floor(Math.random() * happinessPhrases.length);
     return happinessPhrases[randomIndex];
   };
+
+  const handleAddCommentClick = (index) => {
+    setCommentPopupIndex(index);
+  };
+
+  const handleCommentChange = (event, index) => {
+    const updatedComments = [...comments];
+    updatedComments[index] = event.target.value;
+    setComments(updatedComments);
+  };
+
+  const handleCommentSubmit = (index) => {
+    setCommentPopupIndex(null);
+  };
+
   return (
     <>
     <img className="image" alt="BuddyUp" src={BuddyUp} />

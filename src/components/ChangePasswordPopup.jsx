@@ -45,6 +45,10 @@ const ChangePasswordPopup = ({ onClose }) => {
       <h2>Change Password</h2>
       <input
         type="password"
+        placeholder="Old Password"
+      />
+      <input
+        type="password"
         placeholder="New Password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}

@@ -46,10 +46,11 @@ function App() {
 
           <Route exact path="/NewAccount/Home" element={ <NewAccountHome/> } /> 
           <Route path='/NewAccount/Friends' element={ <NewAccountFriends/>} />
+
           <Route path='/NewAccount/Search' element={<NewAccountSearch friendList={friendList} setFriendList={setFriendList}/>} />
           <Route path="/NewAccount/AccountPage" element={<NewAccountPage newUserObj={newUserObj}/>} />
           <Route path="/NewAccount/Search/Confirm" element={<NewAccountSearchConfirm friendList={friendList}/>} />
-          <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk/>} />
+          <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk friendList={friendList} />} />
 
 
           <Route path='/ReturnUser/Home' element={ <ReturnUserHome/>} />
@@ -58,7 +59,7 @@ function App() {
           <Route path='/ReturnUser/AccountPage' element={ <ReturnUserAccount/>} /> 
           <Route path="/ReturnUser/Search/Map" element= { <MapScreen/> } />
           <Route path="/ReturnUser/Search/Confirm" element={<ReturnUserSearchConfirm friendList={friendList}/>} />
-          <Route path="/ReturnUser/Search/Confirm/Ask" element={<ReturnUserSearchConfirmAsk/>} />
+          <Route path="/ReturnUser/Search/Confirm/Ask" element={<ReturnUserSearchConfirmAsk friendList={friendList}/>} />
       </Routes>
     </div>
   );
