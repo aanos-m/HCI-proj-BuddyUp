@@ -10,7 +10,9 @@ const ResetPasswordModal = ({ onClose }) => {
     // For demonstration purposes, just logging the values
     console.log('New Password:', newPassword);
     // Close the modal after handling the reset logic
-    onClose();
+    {
+      newPassword.length === 0 ? alert(`Cannot have an empty field`) : onClose();
+    }
   };
 
   return (

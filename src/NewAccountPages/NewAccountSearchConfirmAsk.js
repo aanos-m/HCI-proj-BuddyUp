@@ -31,11 +31,9 @@ const NewAccountSearchConfirmAsk = ( {friendList }) => {
         <div className="ellipse" role='button'>
           <img alt="profile pic" src= {Me} />
         </div>
-        <ul>
-          <li>
-            Name: {friendList.stuName}
-          </li>
-        </ul>
+        <span>
+        Name: {friendList.stuName}
+        </span>
         <h1 style={{ fontWeight: 'bold'}}> 
             You're study session is confirmed! YAY!
         </h1> 

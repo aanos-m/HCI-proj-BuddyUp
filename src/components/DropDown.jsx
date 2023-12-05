@@ -1,12 +1,13 @@
+// DropDown.js
 import React, { useState } from 'react';
 
-const DropDown = (props) => {
-  const [selectedOption, setSelectedOption] = useState(props.name);
+const DropDown = ({ name, options, onSelect }) => {
+  // const [selectedOption, setSelectedOption] = useState(options[0].name);
+  const [selectedOption, setSelectedOption] = useState(name);
 
   const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-    // Notify parent component about the selected option
-    props.onSelect(option);
+    setSelectedOption(option.name);
+    onSelect(option.name);
   };
 
   return (
@@ -14,37 +15,28 @@ const DropDown = (props) => {
       <button
         className="btn btn-primary dropdown-toggle"
         type="button"
-        id="dropdownMenuButton1"
+        id={`dropdownMenuButton-${name}`}
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         {selectedOption}
       </button>
-      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li>
-          <span
-            className="dropdown-item"
-            onClick={() => handleOptionSelect(`${props.option1}`)}
-          >
-            {props.option1}
-          </span>
-        </li>
-        <li>
-          <span
-            className="dropdown-item"
-            onClick={() => handleOptionSelect(`${props.option2}`)}
-          >
-            {props.option2}
-          </span>
-        </li>
-        <li>
-          <span
-            className="dropdown-item"
-            onClick={() => handleOptionSelect(`${props.option3}`)}
-          >
-            {props.option3}
-          </span>
-        </li>
+      <ul
+        className="dropdown-menu"
+        aria-labelledby={`dropdownMenuButton-${name}`}
+        style={{ maxHeight: '250px', overflowY: 'auto' }}
+      >
+        {options.map((option) => (
+          <li key={option.name}>
+            <span className="dropdown-item" onClick={() => handleOptionSelect(option)}>
+              {option.name.length > 10
+                ? option.name.slice(0, 10) +
+                  ' ... ' +
+                  option.name.slice(option.name.indexOf('('))
+                : option.name }
+            </span>
+          </li>
+        ))}
       </ul>
     </div>
   );

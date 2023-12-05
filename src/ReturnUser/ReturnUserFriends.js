@@ -109,9 +109,6 @@ const ReturnUser = () => {
     }
   ];
   
-  
-
-  
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modals = [
