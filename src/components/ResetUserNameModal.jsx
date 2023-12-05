@@ -4,9 +4,7 @@ const ResetUserNameModal = ({ onClose }) => {
   const [newUsername, setNewUsername] = useState('');
 
   const handleReset = () => {
-    {
       newUsername.length === 0 ? alert(`Cannot have an empty field`) : onClose();
-    }
   };
 
   return (

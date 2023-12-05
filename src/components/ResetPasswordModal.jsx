@@ -4,9 +4,7 @@ const ResetPasswordModal = ({ onClose }) => {
   const [newPassword, setNewPassword] = useState('');
 
   const handleReset = () => {
-    {
       newPassword.length === 0 ? alert(`Cannot have an empty field`) : onClose();
-    }
   };
 
   return (
