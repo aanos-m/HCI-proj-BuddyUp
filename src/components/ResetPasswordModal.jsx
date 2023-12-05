@@ -1,15 +1,9 @@
-// ResetPasswordModal.js
-
 import React, { useState } from 'react';
 
 const ResetPasswordModal = ({ onClose }) => {
   const [newPassword, setNewPassword] = useState('');
 
   const handleReset = () => {
-    // Implement logic to handle the reset based on new password or username
-    // For demonstration purposes, just logging the values
-    console.log('New Password:', newPassword);
-    // Close the modal after handling the reset logic
     {
       newPassword.length === 0 ? alert(`Cannot have an empty field`) : onClose();
     }

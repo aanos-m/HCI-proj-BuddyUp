@@ -4,8 +4,6 @@ const ResetUserNameModal = ({ onClose }) => {
   const [newUsername, setNewUsername] = useState('');
 
   const handleReset = () => {
-    // Implement logic to handle the reset based on new password or username
-    // For demonstration purposes, just logging the values
     {
       newUsername.length === 0 ? alert(`Cannot have an empty field`) : onClose();
     }
