@@ -42,6 +42,9 @@ const ReturnUserSearchConfirm = ({ friendList }) => {
               Location: {friendList.place}
             </li>
           </ul>       
+          <h2 style={{ justifyContent: 'center'}}>
+              Don't forget to request!!
+          </h2> 
         </div>
     </div>
 

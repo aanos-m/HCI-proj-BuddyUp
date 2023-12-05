@@ -23,7 +23,7 @@ const NewAccount = () => {
     <>
       <div>
         <img className="image" alt="BuddyUp" src={BuddyUp} />
-        <div id='screenDiv'>
+        <div id='screenDiv' >
           <h1 id='textWrapper'>
             It’s time for 
             you to connect with people!!

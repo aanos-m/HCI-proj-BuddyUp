@@ -18,6 +18,8 @@
     position: relative;
     width: 330px;
     height: calc(100vh - 30rem)
+    /* width: auto */
+    /* height: auto */
 }
 
 #textWrapper {

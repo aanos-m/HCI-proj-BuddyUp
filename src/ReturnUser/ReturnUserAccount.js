@@ -5,7 +5,8 @@ import Me from "../components/images/Me.png";
 import '../NewAccountPages/NewAccountPage.css';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordPopup from '../components/ChangePasswordPopup';
-
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const ReturnUserAccount = () => {
 
@@ -25,6 +26,9 @@ const ReturnUserAccount = () => {
     let path = `/`; 
     navigate(path);
   }
+  const iconStyle = {
+    animation: 'rotate 2s linear infinite', // Adjust the duration and timing function as needed
+  };
 
   return (
     <>
@@ -41,19 +45,21 @@ const ReturnUserAccount = () => {
               Name: Jackie Mendez
             </li>
             <li>
+              Grad Year: 2024
+            </li>
+            <li>
+              Age: 22
+            </li>
+            <li>
               Major: Computer Science
             </li>
             <li>
-              Year: Senior
+              Minor: None
             </li>
             <li>
               Likes: Music, soccer, and art
             </li>
-          </ul>
-          <button id='btnn' onClick={logout}>
-            Logout
-          </button>
-        
+          </ul>       
         </div>
       </div>
 
@@ -63,15 +69,48 @@ const ReturnUserAccount = () => {
                     alignContent: 'center', alignItems: 'center'
                     }}>
 
-        <button id='btn' onClick={openChangePasswordPopup}>
-          Change Password
+<button onClick={openChangePasswordPopup}
+          style={{
+            alignItems: 'center',
+            color: 'white',
+            backgroundColor: '#2264e2',
+            borderRadius: '15px',
+            boxShadow: '0px 4px 4px #00000040',
+            display: 'flex',
+            gap: '10px',
+            height: '40px',
+            justifyContent: 'center',
+            left: '110px',
+            top: '620px',
+            width: 'auto',
+            border: 'none',
+            fontWeight: '400',
+            padding: '10px'
+          }}> 
+          <SettingsIcon style={iconStyle}/> Change Password
         </button>
         {showChangePasswordPopup && (
-        <ChangePasswordPopup onClose={closeChangePasswordPopup} />
-      )}
+          <ChangePasswordPopup onClose={closeChangePasswordPopup} />
+        )}
 
-        <button id='btn'>
-          Change Settings
+        <button onClick={logout} 
+          style={{
+            alignItems: 'center',
+            color: 'white',
+            backgroundColor: '#e22f22',
+            borderRadius: '15px',
+            boxShadow: '0px 4px 4px #00000040',
+            display: 'flex',
+            gap: '10px',
+            height: '40px',
+            justifyContent: 'center',
+            left: '110px',
+            top: '620px',
+            border: 'none',
+            fontWeight: '400',
+            width: '180px',
+          }}>
+            <LogoutIcon/> Logout
         </button>
       
         <Nav />
