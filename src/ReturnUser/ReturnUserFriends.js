@@ -6,6 +6,10 @@ import MessagePopup from '../components/MessagePopup';
 import MessageIcon from '@mui/icons-material/Message';
 import ErrorIcon from '@mui/icons-material/Error';
 import CustomModal from '../components/CustomModal';
+import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
+import { green, red, yellow } from '@mui/material/colors';
+import IconButton from '@mui/material/IconButton';
+import Divider from '@mui/material/Divider';
 
 const ReturnUser = () => {
 
@@ -35,29 +39,56 @@ const ReturnUser = () => {
     setSelectedFriend(null);
   };
 
+  const getColor = (color) => {
+    switch (color) {
+      case '#12FF8D':
+        return green[500];
+      case '#FF1212':
+        return red[500];
+      case '#FFE712':
+        return yellow[700];
+      default:
+        return green[500];
+    }
+  }
+
+  const statusColor = {
+    available: green[500],
+    busy: yellow[700],
+    unavailable: red[500],
+  };
+
+  const getStatusColor = (status) => {
+    return statusColor[status] || statusColor.unavailable;
+  };
+
   const friendsList = [
     {
       name: 'Jonez',
       date: '08/01/23',
-      color: '#12FF8D'
+      color: '#12FF8D',
+      status: 'available',
     },
     {
       name: 'Leela',
       date: '08/12/23',
       icon: <AccountBoxIcon />,
-      color: '#FF1212'
+      color: '#FF1212',
+      status: 'available',
     },
     {
       name: 'Jayla',
       date: '09/16/23',
       icon: <AccountBoxIcon />,
-      color: '#FFE712'
+      color: '#FFE712',
+      status: 'available',
     },
     {
       name: 'Smith',
       date: '08/10/23',
       icon: <AccountBoxIcon />,
-      color: '#12FF8D'
+      color: '#12FF8D',
+      status: 'available',
     },
     {
       name: 'Skade',
@@ -69,43 +100,50 @@ const ReturnUser = () => {
       name: 'Aaron',
       date: '09/01/23',
       icon: <AccountBoxIcon />,
-      color: '#FFE712'
+      color: '#FFE712',
+      status: 'available',
     },
     {
       name: 'Lucas',
       date: '10/10/23',
       icon: <AccountBoxIcon />,
-      color: '#12FF8D'
+      color: '#12FF8D',
+      status: 'available',
     },
     {
       name: 'Eddie',
       date: '08/02/23',
       icon: <AccountBoxIcon />,
-      color: '#FF1212'
+      color: '#FF1212',
+      status: 'available',
     },
     {
       name: 'Mikee',
       date: '09/20/23',
       icon: <AccountBoxIcon />,
-      color: '#FFE712'
+      color: '#FFE712',
+      status: 'available',
     },
     {
       name: 'Billy',
       date: '10/23/23',
       icon: <AccountBoxIcon />,
-      color: '#12FF8D'
+      color: '#12FF8D',
+      status: 'available',
     },
     {
       name: 'Jacky',
       date: '09/20/23',
       icon: <AccountBoxIcon />,
-      color: '#FF1212'
+      color: '#FF1212',
+      status: 'available',
     },
     {
       name: 'Alysa',
       date: '12/02/23',
       icon: <AccountBoxIcon />,
-      color: '#FFE712'
+      color: '#FFE712',
+      status: 'available',
     }
   ];
   
@@ -159,7 +197,7 @@ const ReturnUser = () => {
         onRequestClose={closeModal}
         modals={modals}
       />
-      <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}} >
+      {/* <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}} >
         <div style={{height: '100%', width: '100%'}}>
           {friendsList.map((friend, index) => (
           <div role='button' id='friendDiv' key={index} style={{ 
@@ -190,7 +228,57 @@ const ReturnUser = () => {
           </div>
         ))}
         </div>
+      </div> */}
+      <div style={{height:'650px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}}>
+        <List>
+          {friendsList.map((friend, index) => (
+            <React.Fragment key={friend.name} >
+              <ListItem alignItems='flex-start' button onClick={() => handleFriendClick(friend)}>
+                <ListItemAvatar>
+                  <span style={{
+                    height: '18px',
+                    width: '18px',
+                    backgroundColor: getStatusColor(friend.status),
+                    borderRadius: '50%',
+                    display: 'flex',
+                    top: '50%',
+                    // alignItems: 'center',
+                    // justifyContent: 'center',
+                    // marginRight: '16px',
+                    position: 'absolute',
+                    right: 0,
+                    bottom: 0,
+                    border: '2px solid white'
+                  }} />
+                  <Avatar alt={friend.name} src={friendImages[index]} />
+                </ListItemAvatar>
+                <ListItemText primary={friend.name} 
+                secondary={
+                  <Typography sx={{ display: 'inline'}}
+                  component='span'
+                  variant='body2'
+                  color="text.primary"
+                  >
+                    {friend.date}
+                  </Typography>
+                }
+                />
+                {/* <IconButton edge="end" aria-label="message" onClick={() => {}}>
+                  <MessageIcon />
+                </IconButton>
+                <Typography
+                  sx={{ marginRight: 2 }}
+                  component="span"
+                  variant="body2"
+                  style={{ backgroundColor: getColor(friend.color), borderRadius: '50%' }}
+                /> */}
+              </ListItem>
+              <Divider variant="inset" component="li" />
+            </React.Fragment>
+          ))}
+        </List>
       </div>
+      
       {isPopupVisible && (
         <MessagePopup onClose={closePopup} friend={selectedFriend} />
       )}
