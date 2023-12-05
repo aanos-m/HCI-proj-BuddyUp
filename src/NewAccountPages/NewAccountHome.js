@@ -2,28 +2,44 @@ import './NewAccountHome.css';
 import React, { useState, useEffect } from 'react';
 import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
-
+import ErrorIcon from '@mui/icons-material/Error';
 
 const NewAccount = () => {
 
-  const [showTooltip, setShowTooltip] = useState(true);
-
+  const [isBeeping, setIsBeeping] = useState(false);
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowTooltip(false);
-    }, 5000);
+    const beepInterval = setInterval(() => {
+      setIsBeeping((prev) => !prev);
+    }, 500);
 
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []); 
+    return () => clearInterval(beepInterval);
+  }, []);
+
+  const handleClick = () => {
+    alert('Home: posts of you and your friends\nFriends: list of all your friends\n'
+    + 'Search: make study plans\nAccount: change password & logout')
+  };
+  const iconStyle = {
+    color: '#FFD700',
+    position: 'relative',
+    left: '300px',
+    top: '-60px',
+    transition: 'border-color 0.3s ease',
+    borderColor: isBeeping ? 'transparent' : 'black',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderRadius: '50%', 
+    cursor: 'pointer', 
+  };
 
 
   return (
     <>
       <div>
         <img className="image" alt="BuddyUp" src={BuddyUp} />
-        <div id='screenDiv' >
+        <ErrorIcon style={iconStyle} onClick={handleClick} />
+
+        <div id='screenDiv' style={{top: '-20px'}}>
           <h1 id='textWrapper'>
             It’s time for 
             you to connect with people!!
@@ -37,34 +53,6 @@ const NewAccount = () => {
       }}>
         <Navigation />
       </div>
-      {showTooltip && (
-        <div
-        style={{
-          position: 'absolute',
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          bottom: '70px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#333',
-          color: '#fff',
-          padding: '10px',
-          gap: '20px',
-          borderRadius: '5px',
-          opacity: '0.9',
-          transition: 'opacity 0.5s ease-in-out',
-        }}
-      >
-        Home: posts of you and your friends
-        <br/>
-        Friends: list of all your friends
-        <br/>
-        Search: make study plans
-        <br/> 
-        Account: general settings 
-      </div>
-      )}
     </>
   )
 }

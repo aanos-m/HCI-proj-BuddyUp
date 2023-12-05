@@ -1,8 +1,7 @@
-import React, { useState} from 'react'
+import React  from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Nav from '../Nav';
 import { useNavigate } from 'react-router-dom';
-import mapImg from '../components/images/maps.png'
 import { GoogleMap, LoadScript, Marker, MarkerF } from '@react-google-maps/api';
 
 const utd = {

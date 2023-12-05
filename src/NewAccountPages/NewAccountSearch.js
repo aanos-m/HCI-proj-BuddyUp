@@ -103,7 +103,6 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
   
   const locations = [
     { name: 'Activity Center (AB)' },
-    { name: 'Administration (AD)' },
     { name: 'Alexander Clark Center (CN)' },
     { name: 'Arts and Humanities 1 (AH1)' },
     { name: 'Arts and Humanities 2 (AH2)' },
@@ -116,7 +115,6 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
     { name: 'Construction Management (CM)' },
     { name: 'Dining Hall West (DHW)' },
     { name: 'Edith O\'Donnell Arts and Technology Building (ATC)' },
-    { name: 'Energy Plant (EP)' },
     { name: 'English Language Center (ELS)' },
     { name: 'Erik Jonsson Academic Center (JO)' },
     { name: 'Eugene McDermott Library (MC)' },
@@ -130,8 +128,6 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
     { name: 'North Engineering and Computer Science (ECSN)' },
     { name: 'North Lab (NL)' },
     { name: 'North Office Building (NB)' },
-    { name: 'Old Service Building (OSB)' },
-    { name: 'Parking Structure 1 (PS1)' },
     { name: 'Physics Building (PHY)' },
     { name: 'Research and Operations Center (ROC)' },
     { name: 'Residence Hall North (RHN)' },
@@ -147,7 +143,6 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
     { name: 'Student Services Building (SSB)' },
     { name: 'Student Union (SU)' },
     { name: 'Student Union Dining Hall (SUDH)' },
-    { name: 'Supplemental Utility Plant (SUP)' },
     { name: 'Synergy Park North (SPN)' },
     { name: 'Theatre (TH)' },
     { name: 'Visitor Center and University Bookstore (VCB)' },
@@ -208,7 +203,7 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
       <div className='NewAccountSearch'>
 
         <img className="image" alt="BuddyUp" src={BuddyUp} />
-          <div id='screenDiv' >
+          <div id='screenDiv'  style={{top:'-1px'}}>
             <DropDown onSelect={handleNameChange} name="Search Students" options={friendsList}/>
             <DropDown onSelect={handleClassChange} name=" Search Topics" options={subjects}/>
             <DropDown onSelect={handlePlaceChange} name= "Locations" options={locations}/>

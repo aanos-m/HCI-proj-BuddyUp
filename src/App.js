@@ -21,6 +21,8 @@ import MapScreen from './ReturnUser/MapScreen';
 
 function App() {
 
+  const [studyPartnersList, setStudyPartnersList] = useState([]);
+
   const [friendList, setFriendList] = useState({
     stuName: '',
     class: '',
@@ -45,12 +47,12 @@ function App() {
           <Route exact path="/CreateAccount" element={ <CreateAccount newUserObj={newUserObj} setNewUserObj={setNewUserObj} /> } /> 
 
           <Route exact path="/NewAccount/Home" element={ <NewAccountHome/> } /> 
-          <Route path='/NewAccount/Friends' element={ <NewAccountFriends/>} />
+          <Route path='/NewAccount/Friends' element={ <NewAccountFriends friendList={friendList} studyPartnersList={studyPartnersList}/>} />
 
           <Route path='/NewAccount/Search' element={<NewAccountSearch friendList={friendList} setFriendList={setFriendList}/>} />
           <Route path="/NewAccount/AccountPage" element={<NewAccountPage newUserObj={newUserObj}/>} />
           <Route path="/NewAccount/Search/Confirm" element={<NewAccountSearchConfirm friendList={friendList}/>} />
-          <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk friendList={friendList} />} />
+          <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk friendList={friendList} setStudyPartnersList={setStudyPartnersList}/>} />
 
 
           <Route path='/ReturnUser/Home' element={ <ReturnUserHome/>} />

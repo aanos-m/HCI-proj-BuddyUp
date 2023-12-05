@@ -5,20 +5,20 @@ import CheckIcon from '@mui/icons-material/Check';
 import Me from "../components/images/person.png";
 import { useNavigate } from 'react-router-dom';
 
-const NewAccountSearchConfirmAsk = ( {friendList }) => {
+const NewAccountSearchConfirmAsk = ( {friendList, setStudyPartnersList }) => {
 
   const navigate = useNavigate();
 
   // Function to handle adding a friend
   function alertFriend() {
-    // Get the friend's name (you may need to modify this based on your data)
-    const friendName = `${friendList.stuName}`; // Replace with your actual data
+      // Add the friend to the studyPartnersList state
+      setStudyPartnersList((prevPartners) => [...prevPartners, friendList]);
 
-    // Show the alert
-    alert("Friend Added");
+      // Show the alert
+      alert("Study Partner Added");
 
-    // Navigate to NewAccountFriends with the friend's name as a parameter
-    navigate(`/NewAccount/Friends/${friendName}`);
+      // Navigate to NewAccountFriends
+      navigate(`/NewAccount/Friends`);
   }
 
   return (

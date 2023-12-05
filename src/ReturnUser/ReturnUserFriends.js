@@ -3,12 +3,11 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Nav from '../Nav';
 import MessagePopup from '../components/MessagePopup';
-import MessageIcon from '@mui/icons-material/Message';
+// import MessageIcon from '@mui/icons-material/Message';
 import ErrorIcon from '@mui/icons-material/Error';
 import CustomModal from '../components/CustomModal';
 import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
 import { green, red, yellow } from '@mui/material/colors';
-import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 
 const ReturnUser = () => {
@@ -38,19 +37,6 @@ const ReturnUser = () => {
     setPopupVisible(false);
     setSelectedFriend(null);
   };
-
-  const getColor = (color) => {
-    switch (color) {
-      case '#12FF8D':
-        return green[500];
-      case '#FF1212':
-        return red[500];
-      case '#FFE712':
-        return yellow[700];
-      default:
-        return green[500];
-    }
-  }
 
   const statusColor = {
     available: green[500],
@@ -159,19 +145,16 @@ const ReturnUser = () => {
   useEffect(() => {
     const beepInterval = setInterval(() => {
       setIsBeeping((prev) => !prev);
-    }, 500); // Adjust the interval as needed
+    }, 500); 
 
-    // Clear the interval when the component unmounts
     return () => clearInterval(beepInterval);
   }, []);
 
   const handleClick = () => {
-    // Open the custom modal alert when the icon is clicked
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    // Close the modal when the user interacts with it
     setIsModalOpen(false);
   };
 
@@ -184,8 +167,8 @@ const ReturnUser = () => {
     borderColor: isBeeping ? 'transparent' : 'black',
     borderWidth: '2px',
     borderStyle: 'solid',
-    borderRadius: '50%', // Add a border-radius for a circular icon
-    cursor: 'pointer', // Make the cursor indicate a clickable element
+    borderRadius: '50%', 
+    cursor: 'pointer', 
   };
 
   return (
@@ -229,7 +212,7 @@ const ReturnUser = () => {
         ))}
         </div>
       </div> */}
-      <div style={{height:'650px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}}>
+      <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}}>
         <List>
           {friendsList.map((friend, index) => (
             <React.Fragment key={friend.name} >

@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from 'react-router-dom';
 
 const MessagePopup = ({ onClose }) => {
   const [message, setMessage] = useState('');
-
-  const navigate = useNavigate();
 
   const handleSend = () => {
     if (message.trim() === '') {
