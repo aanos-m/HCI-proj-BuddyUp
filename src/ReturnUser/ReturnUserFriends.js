@@ -53,7 +53,7 @@ const ReturnUser = () => {
       name: 'Jonez',
       date: '08/01/23',
       color: '#12FF8D',
-      status: 'available',
+      status: 'unavailable',
     },
     {
       name: 'Leela',
@@ -67,14 +67,14 @@ const ReturnUser = () => {
       date: '09/16/23',
       icon: <AccountBoxIcon />,
       color: '#FFE712',
-      status: 'available',
+      status: 'unavailable',
     },
     {
       name: 'Smith',
       date: '08/10/23',
       icon: <AccountBoxIcon />,
       color: '#12FF8D',
-      status: 'available',
+      status: 'busy',
     },
     {
       name: 'Skade',
@@ -101,7 +101,7 @@ const ReturnUser = () => {
       date: '08/02/23',
       icon: <AccountBoxIcon />,
       color: '#FF1212',
-      status: 'available',
+      status: 'unavailable',
     },
     {
       name: 'Mikee',
@@ -115,21 +115,21 @@ const ReturnUser = () => {
       date: '10/23/23',
       icon: <AccountBoxIcon />,
       color: '#12FF8D',
-      status: 'available',
+      status: 'unavailable',
     },
     {
       name: 'Jacky',
       date: '09/20/23',
       icon: <AccountBoxIcon />,
       color: '#FF1212',
-      status: 'available',
+      status: 'busy',
     },
     {
       name: 'Alysa',
       date: '12/02/23',
       icon: <AccountBoxIcon />,
       color: '#FFE712',
-      status: 'available',
+      status: 'busy',
     }
   ];
   
