@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BuddyUp from "../components/images/BuddyUp.png";
 import Navigation from '../Navigation';
 import './NewAccountSearch.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DropDown from '../components/DropDown';
+import GroupSessionPopup from '../components/GroupSessionPopup';
+import PeopleIcon from '@mui/icons-material/People';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -197,6 +200,22 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
     { name: 'UNIV 1010' },
     { name: 'UNIV 2020' }
   ];
+
+  const [showGroupSessionPopup, setShowGroupSessionPopup] = useState(false);
+
+  const handleGroupSessionClick = () => {
+    setShowGroupSessionPopup(true);
+  };
+
+  const closeGroupSessionPopup = () => {
+    setShowGroupSessionPopup(false);
+  };
+
+  const handleGroupSessionDone = (selectedOption) => {
+    // Handle the selected option (e.g., update state)
+    console.log('Selected Option:', selectedOption);
+    closeGroupSessionPopup();
+  };
   
   return (
     <>
@@ -207,6 +226,28 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
             <DropDown onSelect={handleNameChange} name="Search Students" options={friendsList}/>
             <DropDown onSelect={handleClassChange} name=" Search Topics" options={subjects}/>
             <DropDown onSelect={handlePlaceChange} name= "Locations" options={locations}/>
+            <button  onClick={handleGroupSessionClick}
+              style={{
+                color: '#2364E3',
+                backgroundColor: 'white',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+                borderRadius: '10px',
+                display: "flex",
+                border: 'none',
+                width: 'auto',
+                height: '40px',
+                boxShadow: '0px 4px 4px #00000040',
+                gap: '10px',
+                padding: '10px'
+            }}> Group Session  <PeopleIcon/> </button>
+          {showGroupSessionPopup && (
+            <GroupSessionPopup
+              onClose={closeGroupSessionPopup}
+              onSelect={handleGroupSessionDone}
+              options={friendsList} 
+                  />
+            )}
           </div>
       </div>
 
