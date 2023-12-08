@@ -3,14 +3,16 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Nav from '../Nav';
 import MessagePopup from '../components/MessagePopup';
-// import MessageIcon from '@mui/icons-material/Message';
+import MessageIcon from '@mui/icons-material/Message';
+import IconButton from '@mui/material/IconButton';
 import ErrorIcon from '@mui/icons-material/Error';
 import CustomModal from '../components/CustomModal';
 import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
 import { green, red, yellow } from '@mui/material/colors';
 import Divider from '@mui/material/Divider';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
-const ReturnUser = () => {
+const ReturnUserFriends = () => {
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
@@ -158,6 +160,7 @@ const ReturnUser = () => {
     setIsModalOpen(false);
   };
 
+
   const iconStyle = {
     color: '#FFD700',
     position: 'relative',
@@ -171,9 +174,23 @@ const ReturnUser = () => {
     cursor: 'pointer', 
   };
 
+  const iStyle = {
+    color: '#e22f22',
+    position: 'relative',
+    left: '-150px',
+    top: '20px',
+    transition: 'border-color 0.3s ease',
+    borderColor: isBeeping ? 'transparent' : 'black',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderRadius: '50%', 
+    cursor: 'pointer', 
+  };
+
   return (
     <>
       <img className="image" alt="BuddyUp" src={BuddyUp} />
+      <NotificationsIcon  style={iStyle} />     
       <ErrorIcon style={iconStyle} onClick={handleClick} />
       <CustomModal
         isOpen={isModalOpen}
@@ -215,19 +232,19 @@ const ReturnUser = () => {
       <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}}>
         <List>
           {friendsList.map((friend, index) => (
-            <React.Fragment key={friend.name} >
-              <ListItem alignItems='flex-start' button onClick={() => handleFriendClick(friend)}>
+            <React.Fragment key={friend.name}>
+              <ListItem alignItems='center'>
                 <ListItemAvatar>
                   <span style={{
                     height: '18px',
                     width: '18px',
                     backgroundColor: getStatusColor(friend.status),
                     borderRadius: '50%',
-                    display: 'flex',
-                    top: '50%',
-                    // alignItems: 'center',
-                    // justifyContent: 'center',
-                    // marginRight: '16px',
+                    display: 'inline-flex',
+                    top: '35%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '2px',
                     position: 'absolute',
                     right: 0,
                     bottom: 0,
@@ -246,15 +263,15 @@ const ReturnUser = () => {
                   </Typography>
                 }
                 />
-                {/* <IconButton edge="end" aria-label="message" onClick={() => {}}>
-                  <MessageIcon />
+                <IconButton edge="end" aria-label="message" >
+                  <MessageIcon fontSize='large'onClick={() => handleFriendClick(friend)}/>
                 </IconButton>
                 <Typography
                   sx={{ marginRight: 2 }}
                   component="span"
                   variant="body2"
-                  style={{ backgroundColor: getColor(friend.color), borderRadius: '50%' }}
-                /> */}
+                  style={{  borderRadius: '50%' }}
+                />
               </ListItem>
               <Divider variant="inset" component="li" />
             </React.Fragment>
@@ -279,4 +296,4 @@ const ReturnUser = () => {
   )
 }
 
-export default ReturnUser
+export default ReturnUserFriends

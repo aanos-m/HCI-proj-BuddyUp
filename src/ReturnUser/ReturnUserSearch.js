@@ -9,7 +9,8 @@ import MapIcon from '@mui/icons-material/Map';
 import GroupSessionPopup from '../components/GroupSessionPopup';
 import PeopleIcon from '@mui/icons-material/People';
 
-const ReturnUserSearch = ({friendList, setFriendList} ) => {
+const ReturnUserSearch = ({friendList, setFriendList } ) => {
+
 
   const handleNameChange = (selectedName) => {
     setFriendList((prevFriendList) => ({

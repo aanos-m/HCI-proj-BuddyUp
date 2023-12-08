@@ -39,7 +39,6 @@ function App() {
     aboutMe: ''
   });
 
-
   return (
     <div className="App" >
       <Routes>
@@ -57,7 +56,7 @@ function App() {
 
           <Route path='/ReturnUser/Home' element={ <ReturnUserHome/>} />
           <Route path='/ReturnUser/Friends' element={ <ReturnUserFriends/>}/>    
-          <Route path="/ReturnUser/Search" element= { <ReturnUserSearch friendList={friendList} setFriendList={setFriendList}/> } />
+          <Route path="/ReturnUser/Search" element= { <ReturnUserSearch friendList={friendList} setFriendList={setFriendList} /> } />
           <Route path='/ReturnUser/AccountPage' element={ <ReturnUserAccount/>} /> 
           <Route path="/ReturnUser/Search/Map" element= { <MapScreen/> } />
           <Route path="/ReturnUser/Search/Confirm" element={<ReturnUserSearchConfirm friendList={friendList}/>} />

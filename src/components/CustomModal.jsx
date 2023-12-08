@@ -46,7 +46,7 @@ const CustomModal = ({ isOpen, onRequestClose, modals }) => {
         </div>
       ))}
       <span  style={{ margin: '20px', justifyContent: 'center', fontWeight: '500'
-                }}> Click on user to send a message </span>
+                }}> Click on Message icon to send a message </span>
       <button onClick={onRequestClose} style={{
         borderRadius: '10px',
         width: '70px',

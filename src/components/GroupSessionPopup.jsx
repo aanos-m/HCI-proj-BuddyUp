@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const GroupSessionPopup = ({ onClose, onSelect, options }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -12,8 +13,24 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
   };
 
   const handleDoneClick = () => {
-    alert('Group Session has been made!')
+    const subjectInput = document.querySelector('input[placeholder="Subject"]');
+    const descriptionInput = document.querySelector('textarea[placeholder="Description"]');
+
+    // Check if subject and description are empty and no checkboxes are selected
+    if (!subjectInput.value.trim() && !descriptionInput.value.trim() && selectedOptions.length === 0) {
+      alert('Cannot schedule an empty group session.\n'
+            +'Please provide subject, description, and select at least one option.'
+            );
+      return;
+    }
+
+    alert('Group Session has been made!');
     onSelect(selectedOptions);
+    onClose();
+  };
+
+  const handleClose = () => {
+    alert('Group Session cancelled!')
     onClose();
   };
 
@@ -40,11 +57,13 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
           padding: '20px',
           maxHeight: '80vh', // Set a maximum height
           overflowY: 'auto', // Enable vertical scrolling if content exceeds max height
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', width: 'auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: 'auto', height: '250px', overflowY: 'scroll'  }}>
           {options.map((option) => (
-            <div key={option.name} style={{ marginBottom: '10px' }}>
+            <div key={option.name} style={{ marginBottom: '10px', }}>
               <input
                 type="checkbox"
                 id={option.name}
@@ -57,10 +76,16 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
               </label>
             </div>
           ))}
-          <input placeholder="Subject" style={{ margin: '5px' }} />
-          <textarea placeholder="Description" style={{ margin: '5px' }} />
+          
         </div>
-
+          <input 
+            placeholder="Subject" 
+            style={{ margin: '5px' }} 
+           />
+          <textarea 
+            placeholder="Description" 
+            style={{ margin: '5px' }} 
+             />
         <button
           onClick={handleDoneClick}
           style={{
@@ -74,6 +99,20 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
           }}
         >
           Done <ArrowForwardIcon />
+        </button>
+        <button
+          onClick={handleClose}
+          style={{
+            backgroundColor: '#e22f22',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            padding: '10px',
+            margin: '10px',
+            cursor: 'pointer',
+          }}
+        >
+          Cancel <ClearIcon />
         </button>
       </div>
     </div>
