@@ -54,6 +54,10 @@ const CustomModal = ({ isOpen, onRequestClose, modals }) => {
         Make a Group Session in the Search tab and see it pop up
         once the red bell icon is clicked
       </span>
+      <span  style={{ margin: '20px', justifyContent: 'center', fontWeight: '500'}}>
+      Currently unadd friend causes a crash, so it will be fixed and added in future implementation
+      </span>
+      
       <button onClick={onRequestClose} 
       style={{
         alignItems: 'center',

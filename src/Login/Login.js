@@ -19,9 +19,9 @@ const Login = () => {
 
     const returnUser = () => {
       if (username !== 'test123' || password !== 'test123') {
-        alert('enter "test123" for both fields');
+        alert('WRONG INPUT\nenter "test123" to login');
       } else if ((username === 'test123' && password !== 'test123' ) || (username !== 'test123' && password === 'test123')) {
-        alert('enter "test123" for both fields');
+        alert('WRONG INPUT\nenter "test123" to login');
       } else {
         let path = `/ReturnUser/Home`; 
       navigate(path);
