@@ -21,6 +21,12 @@ import MapScreen from './ReturnUser/MapScreen';
 
 function App() {
 
+  const [groupSession, setGroupSession] = useState({
+    subject: '',
+    location: '',
+    description: ''
+  });
+
   const [studyPartnersList, setStudyPartnersList] = useState([]);
 
   const [friendList, setFriendList] = useState({
@@ -39,7 +45,6 @@ function App() {
     aboutMe: ''
   });
 
-
   return (
     <div className="App" >
       <Routes>
@@ -47,17 +52,17 @@ function App() {
           <Route exact path="/CreateAccount" element={ <CreateAccount newUserObj={newUserObj} setNewUserObj={setNewUserObj} /> } /> 
 
           <Route exact path="/NewAccount/Home" element={ <NewAccountHome/> } /> 
-          <Route path='/NewAccount/Friends' element={ <NewAccountFriends friendList={friendList} studyPartnersList={studyPartnersList}/>} />
+          <Route path='/NewAccount/Friends' element={ <NewAccountFriends groupSession={groupSession} friendList={friendList} studyPartnersList={studyPartnersList}/>} />
 
-          <Route path='/NewAccount/Search' element={<NewAccountSearch friendList={friendList} setFriendList={setFriendList}/>} />
+          <Route path='/NewAccount/Search' element={<NewAccountSearch friendList={friendList} setFriendList={setFriendList} setGroupSession={setGroupSession}/>} />
           <Route path="/NewAccount/AccountPage" element={<NewAccountPage newUserObj={newUserObj}/>} />
           <Route path="/NewAccount/Search/Confirm" element={<NewAccountSearchConfirm friendList={friendList}/>} />
           <Route path="/NewAccount/Search/Confirm/Ask" element={<NewAccountSearchConfirmAsk friendList={friendList} setStudyPartnersList={setStudyPartnersList}/>} />
 
 
           <Route path='/ReturnUser/Home' element={ <ReturnUserHome/>} />
-          <Route path='/ReturnUser/Friends' element={ <ReturnUserFriends/>}/>    
-          <Route path="/ReturnUser/Search" element= { <ReturnUserSearch friendList={friendList} setFriendList={setFriendList}/> } />
+          <Route path='/ReturnUser/Friends' element={ <ReturnUserFriends groupSession={groupSession}/>}/>    
+          <Route path="/ReturnUser/Search" element= { <ReturnUserSearch friendList={friendList} setFriendList={setFriendList} setGroupSession={setGroupSession} /> } />
           <Route path='/ReturnUser/AccountPage' element={ <ReturnUserAccount/>} /> 
           <Route path="/ReturnUser/Search/Map" element= { <MapScreen/> } />
           <Route path="/ReturnUser/Search/Confirm" element={<ReturnUserSearchConfirm friendList={friendList}/>} />

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ClearIcon from '@mui/icons-material/Clear';
 
-const GroupSessionPopup = ({ onClose, onSelect, options }) => {
+
+const GroupSessionPopup = ({ onClose, onSelect, options, groupSession, setGroupSession  }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [subject, setSubject] = useState('');
+  const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleCheckboxChange = (value) => {
     const updatedSelection = selectedOptions.includes(value)
@@ -12,8 +17,31 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
   };
 
   const handleDoneClick = () => {
-    alert('Group Session has been made!')
-    onSelect(selectedOptions);
+    const newGroupSession = {
+      subject: subject.trim(),
+      location: location.trim(),
+      description: description.trim(),
+    };
+
+    // Check if subject, location, and description are empty and no checkboxes are selected
+    if (!newGroupSession.subject && !newGroupSession.location && !newGroupSession.description && selectedOptions.length === 0) {
+      alert('Cannot schedule an empty group session.\n'
+            + 'Please provide subject, location, description, and select at least one option.'
+      );
+      return;
+    }
+
+    alert('Group Session has been made!');
+    onSelect({
+      ...newGroupSession,
+      // Include additional properties from options if needed
+    });
+    setGroupSession(newGroupSession);
+    onClose();
+  };
+
+  const handleClose = () => {
+    alert('Group Session cancelled!')
     onClose();
   };
 
@@ -40,11 +68,13 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
           padding: '20px',
           maxHeight: '80vh', // Set a maximum height
           overflowY: 'auto', // Enable vertical scrolling if content exceeds max height
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', width: 'auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: 'auto', height: '250px', overflowY: 'scroll'  }}>
           {options.map((option) => (
-            <div key={option.name} style={{ marginBottom: '10px' }}>
+            <div key={option.name} style={{ marginBottom: '10px', }}>
               <input
                 type="checkbox"
                 id={option.name}
@@ -57,10 +87,26 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
               </label>
             </div>
           ))}
-          <input placeholder="Subject" style={{ margin: '5px' }} />
-          <textarea placeholder="Description" style={{ margin: '5px' }} />
+          
         </div>
-
+          <input 
+            placeholder="Subject" 
+            style={{ margin: '5px' }} 
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+           />
+           <input 
+            placeholder="Location" 
+            style={{ margin: '5px' }} 
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+           />
+          <textarea 
+            placeholder="Description" 
+            style={{ margin: '5px' }} 
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+             />
         <button
           onClick={handleDoneClick}
           style={{
@@ -74,6 +120,20 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
           }}
         >
           Done <ArrowForwardIcon />
+        </button>
+        <button
+          onClick={handleClose}
+          style={{
+            backgroundColor: '#e22f22',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            padding: '10px',
+            margin: '10px',
+            cursor: 'pointer',
+          }}
+        >
+          Cancel <ClearIcon />
         </button>
       </div>
     </div>

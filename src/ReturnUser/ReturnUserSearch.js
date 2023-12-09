@@ -9,7 +9,7 @@ import MapIcon from '@mui/icons-material/Map';
 import GroupSessionPopup from '../components/GroupSessionPopup';
 import PeopleIcon from '@mui/icons-material/People';
 
-const ReturnUserSearch = ({friendList, setFriendList} ) => {
+const ReturnUserSearch = ({friendList, setFriendList, groupSession, setGroupSession } ) => {
 
   const handleNameChange = (selectedName) => {
     setFriendList((prevFriendList) => ({
@@ -44,7 +44,6 @@ const ReturnUserSearch = ({friendList, setFriendList} ) => {
     let path = `/ReturnUser/Search/Map`; 
     navigate(path);
   }
-
 
   const friendsList = [
     {
@@ -223,7 +222,12 @@ const ReturnUserSearch = ({friendList, setFriendList} ) => {
 
   const handleGroupSessionDone = (selectedOption) => {
     // Handle the selected option (e.g., update state)
-    console.log('Selected Option:', selectedOption);
+  
+    setGroupSession({
+      subject: selectedOption.subject,
+      location: selectedOption.location,
+      description: selectedOption.description,
+    });
     closeGroupSessionPopup();
   };
 
@@ -257,7 +261,9 @@ const ReturnUserSearch = ({friendList, setFriendList} ) => {
               onClose={closeGroupSessionPopup}
               onSelect={handleGroupSessionDone}
               options={friendsList} 
-                  />
+              groupSession={groupSession}
+              setGroupSession={setGroupSession}
+              />
             )}
         </div>
       </div>

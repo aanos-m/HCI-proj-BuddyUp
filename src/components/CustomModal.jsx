@@ -1,6 +1,8 @@
 // CustomModal.jsx
 import React from 'react';
 import Modal from 'react-modal';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const CustomModal = ({ isOpen, onRequestClose, modals }) => {
   const modalStyle = {
@@ -45,18 +47,33 @@ const CustomModal = ({ isOpen, onRequestClose, modals }) => {
           {modal.text}
         </div>
       ))}
-      <span  style={{ margin: '20px', justifyContent: 'center', fontWeight: '500'
-                }}> Click on user to send a message </span>
-      <button onClick={onRequestClose} style={{
-        borderRadius: '10px',
-        width: '70px',
-        height: '30px',
+      <span  style={{ margin: '20px', justifyContent: 'center', fontWeight: '500'}}> 
+        Click on Message icon to send a message 
+      </span>
+      <span  style={{ margin: '20px', justifyContent: 'center', fontWeight: '500'}}>
+        Make a Group Session in the Search tab and see it pop up
+        once the red bell icon is clicked
+      </span>
+      <button onClick={onRequestClose} 
+      style={{
+        alignItems: 'center',
         color: 'white',
-        backgroundColor: 'blue',
-        outline: 'none',
+        backgroundColor: '#e22f22',
+        borderRadius: '15px',
+        boxShadow: '0px 4px 4px #00000040',
+        display: 'flex',
+        gap: '10px',
+        height: '40px',
+        justifyContent: 'center',
+        left: '110px',
+        padding: '20px',
+        margin: '10px',
+        top: '620px',
         border: 'none',
-        borderBottom: '1px solid #000'
-      }}>Close</button>
+        fontWeight: '400',
+        width: 'auto',
+      }}>
+        Close <CloseIcon /></button>
     </Modal>
   );
 };

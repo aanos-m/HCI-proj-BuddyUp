@@ -3,14 +3,17 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Nav from '../Nav';
 import MessagePopup from '../components/MessagePopup';
-// import MessageIcon from '@mui/icons-material/Message';
+import MessageIcon from '@mui/icons-material/Message';
+import IconButton from '@mui/material/IconButton';
 import ErrorIcon from '@mui/icons-material/Error';
 import CustomModal from '../components/CustomModal';
 import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
 import { green, red, yellow } from '@mui/material/colors';
 import Divider from '@mui/material/Divider';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import GroupSessionNotification from '../components/GroupSessionNotification';
 
-const ReturnUser = () => {
+const ReturnUserFriends = ({ groupSession }) => {
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
@@ -37,6 +40,8 @@ const ReturnUser = () => {
     setPopupVisible(false);
     setSelectedFriend(null);
   };
+
+
 
   const statusColor = {
     available: green[500],
@@ -171,63 +176,56 @@ const ReturnUser = () => {
     cursor: 'pointer', 
   };
 
+  const iStyle = {
+    color: '#e22f22',
+    position: 'relative',
+    left: '-150px',
+    top: '20px',
+    transition: 'border-color 0.3s ease',
+    borderColor: isBeeping ? 'transparent' : 'black',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderRadius: '50%', 
+    cursor: 'pointer', 
+  };
+
+  const [isGroupSessionNotificationVisible, setGroupSessionNotificationVisible] = useState(false);
+
+  const handleGroupSessionNotificationClick = () => {
+    setGroupSessionNotificationVisible(true);
+  };
+
+  const closeNoti = () => {
+    setGroupSessionNotificationVisible(false)
+  }
+
   return (
     <>
       <img className="image" alt="BuddyUp" src={BuddyUp} />
+       
+      <NotificationsIcon style={iStyle} onClick={handleGroupSessionNotificationClick} />
       <ErrorIcon style={iconStyle} onClick={handleClick} />
       <CustomModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         modals={modals}
       />
-      {/* <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}} >
-        <div style={{height: '100%', width: '100%'}}>
-          {friendsList.map((friend, index) => (
-          <div role='button' id='friendDiv' key={index} style={{ 
-                            borderRadius: '20px',
-                            display: 'flex',
-                            backgroundColor: 'rgba(35, 100, 227, 0.08)',
-                            borderBottom: '1px solid #000',
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                            // justifyContent: 'flex-start',
-                            alignItems: 'center',
-                            gap: '20px',
-                            fontSize: '18px',
-                            fontWeight: '500',
-                            padding: '10px',
-                            margin: '10px 0',
-                            width: 'auto'
-          }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none" style={{marginLeft: '10px'}}>
-              <circle cx="11.5" cy="11" r="11" fill={friend.color}/>
-            </svg>
-            <img src={friendImages[index]} alt="img" style={{ borderRadius: '50%', height: '30px', width: '30px' }} />
-            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
-              <MessageIcon  onClick={handleFriendClick}/>
-            </svg>
-            <span>{friend.name}</span>
-            <span>{friend.date}</span>
-          </div>
-        ))}
-        </div>
-      </div> */}
       <div style={{height:'550px', width: '350px', overflow: 'hidden', overflowY: 'scroll'}}>
         <List>
           {friendsList.map((friend, index) => (
-            <React.Fragment key={friend.name} >
-              <ListItem alignItems='flex-start' button onClick={() => handleFriendClick(friend)}>
+            <React.Fragment key={friend.name}>
+              <ListItem alignItems='center'>
                 <ListItemAvatar>
                   <span style={{
                     height: '18px',
                     width: '18px',
                     backgroundColor: getStatusColor(friend.status),
                     borderRadius: '50%',
-                    display: 'flex',
-                    top: '50%',
-                    // alignItems: 'center',
-                    // justifyContent: 'center',
-                    // marginRight: '16px',
+                    display: 'inline-flex',
+                    top: '35%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '2px',
                     position: 'absolute',
                     right: 0,
                     bottom: 0,
@@ -246,15 +244,15 @@ const ReturnUser = () => {
                   </Typography>
                 }
                 />
-                {/* <IconButton edge="end" aria-label="message" onClick={() => {}}>
-                  <MessageIcon />
+                <IconButton edge="end" aria-label="message" >
+                  <MessageIcon fontSize='large'onClick={() => handleFriendClick(friend)}/>
                 </IconButton>
                 <Typography
                   sx={{ marginRight: 2 }}
                   component="span"
                   variant="body2"
-                  style={{ backgroundColor: getColor(friend.color), borderRadius: '50%' }}
-                /> */}
+                  style={{  borderRadius: '50%' }}
+                />
               </ListItem>
               <Divider variant="inset" component="li" />
             </React.Fragment>
@@ -264,6 +262,10 @@ const ReturnUser = () => {
       
       {isPopupVisible && (
         <MessagePopup onClose={closePopup} friend={selectedFriend} />
+      )}
+
+      {isGroupSessionNotificationVisible && (
+        <GroupSessionNotification groupSession={groupSession} onClose={closeNoti} />
       )}
 
       
@@ -279,4 +281,4 @@ const ReturnUser = () => {
   )
 }
 
-export default ReturnUser
+export default ReturnUserFriends

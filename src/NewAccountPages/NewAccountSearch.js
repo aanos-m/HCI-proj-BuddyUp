@@ -10,7 +10,7 @@ import PeopleIcon from '@mui/icons-material/People';
 
 import { useNavigate } from 'react-router-dom';
 
-const NewAccountSearch = ( {friendList, setFriendList} ) => {
+const NewAccountSearch = ( {friendList, setFriendList,  groupSession, setGroupSession} ) => {
 
   const handleNameChange = (selectedName) => {
     setFriendList((prevFriendList) => ({
@@ -213,7 +213,11 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
 
   const handleGroupSessionDone = (selectedOption) => {
     // Handle the selected option (e.g., update state)
-    console.log('Selected Option:', selectedOption);
+    setGroupSession({
+      subject: selectedOption.subject,
+      location: selectedOption.location,
+      description: selectedOption.description,
+    });
     closeGroupSessionPopup();
   };
   
@@ -246,7 +250,9 @@ const NewAccountSearch = ( {friendList, setFriendList} ) => {
               onClose={closeGroupSessionPopup}
               onSelect={handleGroupSessionDone}
               options={friendsList} 
-                  />
+              groupSession={groupSession}
+              setGroupSession={setGroupSession}
+              />
             )}
           </div>
       </div>
