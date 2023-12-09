@@ -6,8 +6,10 @@ import {  List, ListItem,  ListItemText, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import MessageIcon from '@mui/icons-material/Message';
 import MessagePopup from '../components/MessagePopup';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import GroupSessionNotification from '../components/GroupSessionNotification';
 
-const NewAccountFriends = ({ studyPartnersList }) => {
+const NewAccountFriends = ({ studyPartnersList, groupSession }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const closePopup = () => {
     setPopupVisible(false);
@@ -29,7 +31,8 @@ const NewAccountFriends = ({ studyPartnersList }) => {
     alert('1) Navigate to Search\n'+
           '2) Choose from the drop downs\n'+
           '3) Request and add friend (if you want to :) )\n'+
-          '4) Maybe text friend afterwards!')
+          '4) Maybe text friend afterwards!\n'+
+          '5) Make a Group Session in the Search tab and see it pop up after once the red bell icon is clicked')
   };
   const iconStyle = {
     color: '#FFD700',
@@ -45,10 +48,34 @@ const NewAccountFriends = ({ studyPartnersList }) => {
   };
 
   const currDate = new Date().toLocaleDateString();
+
+  const iStyle = {
+    color: '#e22f22',
+    position: 'relative',
+    left: '10px',
+    top: '-55px',
+    transition: 'border-color 0.3s ease',
+    borderColor: isBeeping ? 'transparent' : 'black',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderRadius: '50%', 
+    cursor: 'pointer', 
+  };
+
+  const [isGroupSessionNotificationVisible, setGroupSessionNotificationVisible] = useState(false);
+
+  const handleGroupSessionNotificationClick = () => {
+    setGroupSessionNotificationVisible(true);
+  };
+
+  const closeNoti = () => {
+    setGroupSessionNotificationVisible(false)
+  }
 return (
   <>
     <div>
       <img className="image" alt="BuddyUp" src={BuddyUp} />
+      <NotificationsIcon style={iStyle} onClick={handleGroupSessionNotificationClick} />
       <ErrorIcon style={iconStyle} onClick={handleClick} />
 
       <div id='screenDiv' style={{top: '-20px'}}>
@@ -84,6 +111,9 @@ return (
         </container>
         {isPopupVisible && (
         <MessagePopup onClose={closePopup} />
+      )}
+      {isGroupSessionNotificationVisible && (
+        <GroupSessionNotification groupSession={groupSession} onClose={closeNoti} />
       )}
       </div>
     </div>

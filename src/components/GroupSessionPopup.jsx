@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const GroupSessionPopup = ({ onClose, onSelect, options }) => {
+
+const GroupSessionPopup = ({ onClose, onSelect, options, groupSession, setGroupSession  }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [subject, setSubject] = useState('');
+  const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleCheckboxChange = (value) => {
     const updatedSelection = selectedOptions.includes(value)
@@ -13,19 +17,26 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
   };
 
   const handleDoneClick = () => {
-    const subjectInput = document.querySelector('input[placeholder="Subject"]');
-    const descriptionInput = document.querySelector('textarea[placeholder="Description"]');
+    const newGroupSession = {
+      subject: subject.trim(),
+      location: location.trim(),
+      description: description.trim(),
+    };
 
-    // Check if subject and description are empty and no checkboxes are selected
-    if (!subjectInput.value.trim() && !descriptionInput.value.trim() && selectedOptions.length === 0) {
+    // Check if subject, location, and description are empty and no checkboxes are selected
+    if (!newGroupSession.subject && !newGroupSession.location && !newGroupSession.description && selectedOptions.length === 0) {
       alert('Cannot schedule an empty group session.\n'
-            +'Please provide subject, description, and select at least one option.'
-            );
+            + 'Please provide subject, location, description, and select at least one option.'
+      );
       return;
     }
 
     alert('Group Session has been made!');
-    onSelect(selectedOptions);
+    onSelect({
+      ...newGroupSession,
+      // Include additional properties from options if needed
+    });
+    setGroupSession(newGroupSession);
     onClose();
   };
 
@@ -81,10 +92,20 @@ const GroupSessionPopup = ({ onClose, onSelect, options }) => {
           <input 
             placeholder="Subject" 
             style={{ margin: '5px' }} 
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+           />
+           <input 
+            placeholder="Location" 
+            style={{ margin: '5px' }} 
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
            />
           <textarea 
             placeholder="Description" 
             style={{ margin: '5px' }} 
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
              />
         <button
           onClick={handleDoneClick}
