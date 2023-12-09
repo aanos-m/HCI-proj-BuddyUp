@@ -5,6 +5,8 @@ import BuddyUp from "../components/images/BuddyUp.png";
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddIcon from '@mui/icons-material/Add';
+
 
 const ReturnUserHome = () => {
 
@@ -200,11 +202,35 @@ const ReturnUserHome = () => {
   const handleCommentSubmit = (index) => {
     setCommentPopupIndex(null);
   };
+  const addStyle= {
+    alignItems: 'center',
+    color: 'white',
+    backgroundColor: '#2264e2',
+    borderRadius: '15px',
+    boxShadow: '0px 4px 4px #00000040',
+    display: 'flex',
+    gap: '10px',
+    height: '40px',
+    justifyContent: 'center',
+    position: 'relative',
+    left: '-120px',
+    top: '-20px',
+    width: 'auto',
+    border: 'none',
+    fontWeight: '400',
+    padding: '10px'
+  }
 
+  const showAlert = () => {
+    alert('Button added as a placeholder\nA bug happens when trying to add post in ReturnUser flow\nWill be fixed in future updates')
+  }
   return (
     <>
     <img className="image" alt="BuddyUp" src={BuddyUp} />
-      <div  id="outterDiv "style={{height:'600px', width: '350px',
+    <button style={addStyle} onClick={showAlert}>
+          Post <AddIcon />
+        </button>
+      <div  id="outterDiv "style={{height:'500px', width: '350px',
                   overflow: 'hidden',
                   overflowY: 'scroll'}} >
 

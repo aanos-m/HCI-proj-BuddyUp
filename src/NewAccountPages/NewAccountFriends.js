@@ -32,7 +32,8 @@ const NewAccountFriends = ({ studyPartnersList, groupSession }) => {
           '2) Choose from the drop downs\n'+
           '3) Request and add friend (if you want to :) )\n'+
           '4) Maybe text friend afterwards!\n'+
-          '5) Make a Group Session in the Search tab and see it pop up after once the red bell icon is clicked')
+          '5) Make a Group Session in the Search tab and see it pop up after once the red bell icon is clicked\n\nOTHER INFO\n'+
+          '6) Currently unadd friend causes a crash, so it will be fixed and added in future implementation')
   };
   const iconStyle = {
     color: '#FFD700',

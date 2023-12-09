@@ -4,6 +4,7 @@ import Navigation from '../Navigation';
 import CheckIcon from '@mui/icons-material/Check';
 import Me from "../components/images/person.png";
 import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const NewAccountSearchConfirmAsk = ( {friendList, setStudyPartnersList }) => {
 
@@ -19,6 +20,11 @@ const NewAccountSearchConfirmAsk = ( {friendList, setStudyPartnersList }) => {
 
       // Navigate to NewAccountFriends
       navigate(`/NewAccount/Friends`);
+  }
+
+  const routeBack = () =>{ 
+    let path = `/NewAccount/Search`; 
+    navigate(path);
   }
 
   return (
@@ -46,25 +52,43 @@ const NewAccountSearchConfirmAsk = ( {friendList, setStudyPartnersList }) => {
                   position: 'absolute', bottom: '0px', justifyContent: 'center',
                   alignContent: 'center', alignItems: 'center'
                   }}>
-
       <button onClick={alertFriend}  style={{
-            color: 'white',
-            backgroundColor: '#1DD100',
-            fontWeight: 'bold',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-            borderRadius: '10px',
-            display: "flex",
-            border: 'none',
-            width: '140px',
-            height: '40px',
-            boxShadow: '0px 4px 4px #00000040',
-            gap: '10px',
-            padding: '10px'
+                color: 'white',
+                backgroundColor: '#1DD100',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+                borderRadius: '10px',
+                display: "flex",
+                border: 'none',
+                width: '140px',
+                height: '40px',
+                boxShadow: '0px 4px 4px #00000040',
+                gap: '10px',
+                padding: '10px'
 
-        }}>
-        Add Friend <CheckIcon/>
-      </button>
+            }}>
+            Add Friend <CheckIcon/>
+          </button>
+
+        <button onClick={routeBack} 
+          style={{
+              color: 'white',
+              backgroundColor: '#2364E3',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              borderRadius: '10px',
+              display: "flex",
+              border: 'none',
+              width: '140px',
+              height: '40px',
+              boxShadow: '0px 4px 4px #00000040',
+              gap: '10px',
+              padding: '10px'
+
+          }}>
+          Back <ArrowBackIcon/>
+        </button>
+      
       <Navigation />
     </div>
 </>
